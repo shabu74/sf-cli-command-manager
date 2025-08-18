@@ -1,0 +1,39 @@
+{
+  "commands": [
+    {
+      "name": "static-resource generate",
+      "description": "Generate a static resource.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated static resource. This name can contain only underscores and alphanumeric characters, and must be unique in your org. It must begin with a letter, not include spaces, not end with an underscore, and not contain two consecutive underscores."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--type",
+          "description": "Content type (mime type) of the generated static resource. Must be a valid MIME type such as application/json, application/javascript, application/zip, text/plain, text/css, etc.",
+          "defaultValue": "application/zip"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        }
+      ]
+    }
+  ]
+}

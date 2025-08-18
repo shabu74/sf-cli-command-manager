@@ -1,0 +1,99 @@
+{
+  "commands": [
+    {
+      "name": "community create",
+      "description": "Create an Experience Cloud site using a template.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--url-path-prefix",
+          "description": "URL to append to the domain created when Digital Experiences was enabled for this org."
+        },
+        {
+          "name": "--description",
+          "description": "Description of the site. The description displays in Digital Experiences - All Sites in Setup and helps with site identification."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the site to create."
+        },
+        {
+          "name": "--template-name",
+          "description": "Template to use to create a site. An example of a template is Customer Service. Run the \"community template list\" command to see which templates are available in your org."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "community list template",
+      "description": "Retrieve the list of templates available in your org.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "community publish",
+      "description": "Publish an Experience Builder site to make it live.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the Experience Builder site to publish."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ]
+    }
+  ]
+}

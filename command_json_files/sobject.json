@@ -1,0 +1,68 @@
+{
+  "commands": [
+    {
+      "name": "sobject describe",
+      "description": "Display the metadata for a standard or custom object or a Tooling API object.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the object to describe."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--use-tooling-api",
+          "description": "Use Tooling API to display metadata for Tooling API objects.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "sobject list",
+      "description": "List all Salesforce objects of a specified category.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--sobject",
+          "description": "Category of objects to list.",
+          "defaultValue": "ALL"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "commands": [
+    {
+      "name": "cmdt generate field",
+      "description": "Generate a field for a custom metadata type based on the provided field type.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Unique name for the field."
+        },
+        {
+          "name": "--type",
+          "description": "Type of the field. You can't use this command to create a custom metadata type field of type \"Metadata Relationship\". Use the Salesforce Setup UI instead.",
+          "permissibleValues": [
+            "Checkbox",
+            "Date",
+            "DateTime",
+            "Email",
+            "Number",
+            "Percent",
+            "Phone",
+            "Picklist",
+            "Text",
+            "TextArea",
+            "LongTextArea",
+            "Url"
+          ]
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--picklist-values",
+          "description": "Picklist values; required for picklist fields."
+        },
+        {
+          "name": "--decimal-places",
+          "description": "Number of decimal places to use for number or percent fields. The value must be greater than or equal to zero. Default value is 0.",
+          "defaultValue": "0"
+        },
+        {
+          "name": "--label",
+          "description": "Label for the field."
+        },
+        {
+          "name": "--output-directory",
+          "description": "Directory to store newly-created field definition files. New files are automatically created in the \"fields\" directory. The location can be an absolute path or relative to the current working directory. The default is the current directory."
+        }
+      ]
+    },
+    {
+      "name": "cmdt generate fromorg",
+      "description": "Generate a custom metadata type and all its records from a Salesforce object.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--dev-name",
+          "description": "Name of the custom metadata type."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the source Salesforce object used to generate the custom metadata type."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--label",
+          "description": "Label for the custom metadata type."
+        },
+        {
+          "name": "--plural-label",
+          "description": "Plural version of the label value; if blank, uses label."
+        },
+        {
+          "name": "--visibility",
+          "description": "Who can see the custom metadata type. For more information on what each option means, see this topic in Salesforce Help: https://help.salesforce.com/s/articleView?id=sf.custommetadatatypes_ui_create.htm&type=5.",
+          "permissibleValues": [
+            "PackageProtected",
+            "Protected",
+            "Public"
+          ],
+          "defaultValue": "Public"
+        },
+        {
+          "name": "--ignore-unsupported",
+          "description": "Ignore unsupported field types. In this context, \"ignore\" means that the fields aren't created. The default behavior is to create fields of type text and convert the field values to text.",
+          "type": "boolean"
+        },
+        {
+          "name": "--type-output-directory",
+          "description": "Directory to store newly-created custom metadata type files.",
+          "defaultValue": "force-app/main/default/objects"
+        },
+        {
+          "name": "--records-output-dir",
+          "description": "Directory to store newly-created custom metadata record files.",
+          "defaultValue": "force-app/main/default/customMetadata"
+        }
+      ]
+    },
+    {
+      "name": "cmdt generate object",
+      "description": "Generate a new custom metadata type in the current project.",
+      "requiredFlags": [
+        {
+          "name": "--type-name",
+          "description": "Unique object name for the custom metadata type. The name can contain only underscores and alphanumeric characters, and must be unique in your org. It must begin with a letter, not include spaces, not end with an underscore, and not contain two consecutive underscores."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--label",
+          "description": "Label for the custom metadata type."
+        },
+        {
+          "name": "--plural-label",
+          "description": "Plural version of the label value; if blank, uses label."
+        },
+        {
+          "name": "--visibility",
+          "description": "Who can see the custom metadata type. For more information on what each option means, see this topic in Salesforce Help: https://help.salesforce.com/s/articleView?id=sf.custommetadatatypes_ui_create.htm&type=5.",
+          "permissibleValues": [
+            "PackageProtected",
+            "Protected",
+            "Public"
+          ],
+          "defaultValue": "Public"
+        },
+        {
+          "name": "--output-directory",
+          "description": "Directory to store the newly-created custom metadata type files. The location can be an absolute path or relative to the current working directory. The default is the current directory."
+        }
+      ]
+    },
+    {
+      "name": "cmdt generate record",
+      "description": "Generate a new record for a given custom metadata type in the current project.",
+      "requiredFlags": [
+        {
+          "name": "--type-name",
+          "description": "API name of the custom metadata type to create a record for; must end in \"__mdt\"."
+        },
+        {
+          "name": "--record-name",
+          "description": "Name of the new record."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--label",
+          "description": "Label for the new record."
+        },
+        {
+          "name": "--protected",
+          "description": "Protect the record when it's in a managed package. Protected records can only be accessed by code in the same managed package namespace.",
+          "permissibleValues": [
+            "true",
+            "false"
+          ],
+          "defaultValue": "false"
+        },
+        {
+          "name": "--input-directory",
+          "description": "Directory from which to get the custom metadata type definition from.",
+          "defaultValue": "force-app/main/default/objects"
+        },
+        {
+          "name": "--output-directory",
+          "description": "Directory to store newly-created custom metadata record files.",
+          "defaultValue": "force-app/main/default/customMetadata"
+        }
+      ]
+    },
+    {
+      "name": "cmdt generate records",
+      "description": "Generate new custom metadata type records from a CSV file.",
+      "requiredFlags": [
+        {
+          "name": "--csv",
+          "description": "Pathname of the CSV file."
+        },
+        {
+          "name": "--type-name",
+          "description": "API name of the custom metadata type to create a record for. The '__mdt' suffix is appended to the end of the name if it's omitted."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--input-directory",
+          "description": "Directory from which to get the custom metadata type definition from.",
+          "defaultValue": "force-app/main/default/objects"
+        },
+        {
+          "name": "--output-directory",
+          "description": "Directory to store newly-created custom metadata record files.",
+          "defaultValue": "force-app/main/default/customMetadata"
+        },
+        {
+          "name": "--name-column",
+          "description": "Column used to determine the name of the record.",
+          "defaultValue": "Name"
+        }
+      ]
+    }
+  ]
+}

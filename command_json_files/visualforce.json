@@ -1,0 +1,78 @@
+{
+  "commands": [
+    {
+      "name": "visualforce generate component",
+      "description": "Generate a Visualforce Component.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated Visualforce Component. The name can be up to 40 characters and must start with a letter."
+        },
+        {
+          "name": "--label",
+          "description": "Visualforce Component label."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--template",
+          "description": "Template to use for file creation. Supplied parameter values or default values are filled into a copy of the template.",
+          "permissibleValues": ["DefaultVFComponent"],
+          "defaultValue": "DefaultVFComponent"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        }
+      ]
+    },
+    {
+      "name": "visualforce generate page",
+      "description": "Generate a Visualforce Page.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated Visualforce Page. The name can be up to 40 characters and must start with a letter."
+        },
+        {
+          "name": "--label",
+          "description": "Visualforce Page label."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        }
+      ]
+    }
+  ]
+}

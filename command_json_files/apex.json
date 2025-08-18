@@ -1,0 +1,370 @@
+{
+  "commands": [
+    {
+      "name": "apex generate class",
+      "description": "Generate an Apex class.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--template",
+          "description": "Template to use for file creation. Supplied parameter values or default values are filled into a copy of the template. Permissible values are: ApexException, ApexUnitTest, BasicUnitTest, DefaultApexClass, InboundEmailService. Default value: DefaultApexClass.",
+          "permissibleValues": [
+            "ApexException",
+            "ApexUnitTest",
+            "BasicUnitTest",
+            "DefaultApexClass",
+            "InboundEmailService"
+          ],
+          "defaultValue": "DefaultApexClass"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated Apex class. The name can be up to 40 characters and must start with a letter."
+        }
+      ]
+    },
+    {
+      "name": "apex generate trigger",
+      "description": "Generate an Apex trigger.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--template",
+          "description": "Template to use for file creation. Supplied parameter values or default values are filled into a copy of the template. Permissible values are: ApexTrigger. Default value: ApexTrigger.",
+          "permissibleValues": [
+            "ApexTrigger"
+          ],
+          "defaultValue": "ApexTrigger"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--sobject",
+          "description": "Salesforce object to generate a trigger on. Default value: SOBJECT.",
+          "defaultValue": "SOBJECT"
+        },
+        {
+          "name": "--event",
+          "description": "Events that fire the trigger. Permissible values are: before insert, before update, before delete, after insert, after update, after delete, after undelete. Default value: before insert.",
+          "permissibleValues": [
+            "before insert",
+            "before update",
+            "before delete",
+            "after insert",
+            "after update",
+            "after delete",
+            "after undelete"
+          ],
+          "defaultValue": "before insert"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated Apex trigger. The name can be up to 40 characters and must start with a letter."
+        }
+      ]
+    },
+    {
+      "name": "apex get log",
+      "description": "Fetch the specified log or given number of most recent logs from the org.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--log-id",
+          "description": "ID of the specific log to display."
+        },
+        {
+          "name": "--number",
+          "description": "Number of the most recent logs to display."
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the log files. The location can be an absolute path or relative to the current working directory. The default is the current directory."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "apex get test",
+      "description": "Display test results for a specific asynchronous test run.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--code-coverage",
+          "description": "Retrieve code coverage results.",
+          "type": "boolean"
+        },
+        {
+          "name": "--detailed-coverage",
+          "description": "Display detailed code coverage per test.",
+          "type": "boolean"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory in which to store test result files."
+        },
+        {
+          "name": "--result-format",
+          "description": "Format of the test results. Permissible values are: human, tap, junit, json. Default value: human.",
+          "permissibleValues": [
+            "human",
+            "tap",
+            "junit",
+            "json"
+          ],
+          "defaultValue": "human"
+        },
+        {
+          "name": "--concise",
+          "description": "Display only failed test results; works with human-readable output only.",
+          "type": "boolean"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        },
+        {
+          "name": "--test-run-id",
+          "description": "ID of the test run."
+        }
+      ]
+    },
+    {
+      "name": "apex list log",
+      "description": "Display a list of IDs and general information about debug logs.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "apex run",
+      "description": "Execute anonymous Apex code entered on the command line or from a local file.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--file",
+          "description": "Path to a local file that contains Apex code."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "apex run test",
+      "description": "Invoke Apex tests in an org.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--code-coverage",
+          "description": "Retrieve code coverage results.",
+          "type": "boolean"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory in which to store test run files."
+        },
+        {
+          "name": "--test-level",
+          "description": "Level of tests to run; default is RunLocalTests. Permissible values are: RunLocalTests, RunAllTestsInOrg, RunSpecifiedTests.",
+          "permissibleValues": [
+            "RunLocalTests",
+            "RunAllTestsInOrg",
+            "RunSpecifiedTests"
+          ]
+        },
+        {
+          "name": "--class-names",
+          "description": "Apex test class names to run; default is all classes. If you select --class-names, you can't specify --suite-names or --tests. For multiple classes, repeat the flag for each."
+        },
+        {
+          "name": "--result-format",
+          "description": "Format of the test results. Permissible values are: human, tap, junit, json. Default value: human.",
+          "permissibleValues": [
+            "human",
+            "tap",
+            "junit",
+            "json"
+          ],
+          "defaultValue": "human"
+        },
+        {
+          "name": "--suite-names",
+          "description": "Apex test suite names to run. If you select --suite-names, you can't specify --class-names or --tests. For multiple suites, repeat the flag for each."
+        },
+        {
+          "name": "--tests",
+          "description": "Apex test class names or IDs and, if applicable, test methods to run; default is all tests. If you specify --tests, you can't specify --class-names or --suite-names. For multiple tests, repeat the flag for each."
+        },
+        {
+          "name": "--wait",
+          "description": "Sets the streaming client socket timeout in minutes; specify a longer wait time if timeouts occur frequently."
+        },
+        {
+          "name": "--synchronous",
+          "description": "Runs test methods from a single Apex class synchronously; if not specified, tests are run asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--detailed-coverage",
+          "description": "Display detailed code coverage per test.",
+          "type": "boolean"
+        },
+        {
+          "name": "--concise",
+          "description": "Display only failed test results; works with human-readable output only.",
+          "type": "boolean"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "apex tail log",
+      "description": "Activate debug logging and display logs in the terminal.",
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--color",
+          "description": "Apply default colors to noteworthy log lines.",
+          "type": "boolean"
+        },
+        {
+          "name": "--debug-level",
+          "description": "Debug level to set on the DEVELOPER_LOG trace flag for your user."
+        },
+        {
+          "name": "--skip-trace-flag",
+          "description": "Skip trace flag setup. Assumes that a trace flag and debug level are fully set up.",
+          "type": "boolean"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    }
+  ]
+}

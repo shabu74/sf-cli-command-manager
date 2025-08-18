@@ -1,0 +1,36 @@
+{
+  "commands": [
+    {
+      "name": "doctor",
+      "description": "Gather CLI configuration data and run diagnostic tests to discover and report potential problems in your environment.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--command",
+          "description": "Command to run in debug mode; results are written to a log file. Use the --command parameter to run a specific command in debug mode; the doctor writes both stdout and stderr to *.log files that you can provide to Salesforce Customer Support or attach to a GitHub issue."
+        },
+        {
+          "name": "--plugin",
+          "description": "Specific plugin on which to run diagnostics. To run diagnostic tests on a specific plugin, use the --plugin parameter. If the plugin isn't listening to the doctor, then you get a warning."
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory to save all created files rather than the current working directory. Use the --outputdir to specify a different directory."
+        },
+        {
+          "name": "--create-issue",
+          "description": "Create a new issue on our GitHub repo and attach all diagnostic results.",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

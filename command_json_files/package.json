@@ -1,0 +1,1049 @@
+{
+  "commands": [
+    {
+      "name": "package convert",
+      "description": "Convert a managed-released first-generation managed package into a second-generation managed package.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 033) of the first-generation managed package to convert."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--installation-key",
+          "description": "Installation key for key-protected package. Either an --installation-key value or the --installation-key-bypass flag is required."
+        },
+        {
+          "name": "--definition-file",
+          "description": "Path to a definition file that contains features and org preferences that the metadata of the package version depends on. This definition file is similar to the scratch org definition file."
+        },
+        {
+          "name": "--installation-key-bypass",
+          "description": "Bypass the installation key requirement. If you bypass this requirement, anyone can install your package. Either an --installation-key value or the --installation-key-bypass flag is required.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Minutes to wait for the package version to be created.",
+          "defaultValue": "0 minutes"
+        },
+        {
+          "name": "--seed-metadata",
+          "description": "Directory containing metadata to be deployed prior to conversion. The directory containing metadata that will be deployed on the build org prior to attempting package conversion."
+        },
+        {
+          "name": "--verbose",
+          "description": "Display verbose command output.",
+          "type": "boolean"
+        },
+        {
+          "name": "--patch-version",
+          "description": "Specific released patch version to be converted. Specify a released patch version as major.minor.patch to convert to a second-generation managed package version."
+        },
+        {
+          "name": "--code-coverage",
+          "description": "Calculate and store the code coverage percentage by running the packaged Apex tests included in this package version. Before you can promote and release a managed package version, the Apex code must meet a minimum 75% code coverage requirement.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package create",
+      "description": "Create a package.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--name",
+          "description": "Name of the package to create."
+        },
+        {
+          "name": "--package-type",
+          "description": "Type of package. The options for package type are Managed and Unlocked (Managed=DeveloperManagedSubscriberManaged, Unlocked=DeveloperControlledSubscriberEditable). These options determine upgrade and editability rules.",
+          "permissibleValues": ["Managed", "Unlocked"]
+        },
+        {
+          "name": "--path",
+          "description": "Path to directory that contains the contents of the package."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--description",
+          "description": "Description of the package."
+        },
+        {
+          "name": "--no-namespace",
+          "description": "Create the package with no namespace; available only for unlocked packages. This flag is useful when you’re migrating an existing org to packages. But use a namespaced package for new metadata.",
+          "type": "boolean"
+        },
+        {
+          "name": "--org-dependent",
+          "description": "Depends on unpackaged metadata in the installation org; applies to unlocked packages only. Use Source Tracking in Sandboxes to develop your org-dependent unlocked package. For more information, see \"Create Org-Dependent Unlocked Packages\" in the Salesforce DX Developer Guide.",
+          "type": "boolean"
+        },
+        {
+          "name": "--error-notification-username",
+          "description": "Active Dev Hub user designated to receive email notifications for package errors. Email notifications include information about unhandled Apex exceptions, and install, upgrade, or uninstall failures associated with your package."
+        }
+      ]
+    },
+    {
+      "name": "package delete",
+      "description": "Delete a package.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 0Ho) or alias of the package to delete."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--no-prompt",
+          "description": "Don’t prompt before deleting the package.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package install",
+      "description": "Install or upgrade a version of a package in the target org.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 04t) or alias of the package version to install."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for installation status.",
+          "defaultValue": "0"
+        },
+        {
+          "name": "--installation-key",
+          "description": "Installation key for key-protected package (default: null)."
+        },
+        {
+          "name": "--publish-wait",
+          "description": "Maximum number of minutes to wait for the Subscriber Package Version ID to become available in the target org before canceling the install request.",
+          "defaultValue": "0"
+        },
+        {
+          "name": "--no-prompt",
+          "description": "Don't prompt for confirmation. Allows the following without an explicit confirmation response: 1) Remote Site Settings and Content Security Policy websites to send or receive data, and 2) --upgrade-type Delete to proceed.",
+          "type": "boolean"
+        },
+        {
+          "name": "--apex-compile",
+          "description": "Compile all Apex in the org and package, or only Apex in the package; unlocked packages only. Applies to unlocked packages only. Specifies whether to compile all Apex in the org and package, or only the Apex in the package. For package installs into production orgs, or any org that has Apex Compile on Deploy enabled, the platform compiles all Apex in the org after the package install or upgrade operation completes. This approach assures that package installs and upgrades don’t impact the performance of an org, and is done even if --apex-compile package is specified.",
+          "permissibleValues": ["all", "package"],
+          "defaultValue": "all"
+        },
+        {
+          "name": "--security-type",
+          "description": "Security access type for the installed package. Available options are AdminsOnly and AllUsers.",
+          "permissibleValues": ["AllUsers", "AdminsOnly"],
+          "defaultValue": "AdminsOnly"
+        },
+        {
+          "name": "--upgrade-type",
+          "description": "Upgrade type for the package installation; available only for unlocked packages. For unlocked package upgrades, set this flag to one of these values: - DeprecateOnly: Mark all removed components as deprecated. - Mixed: Delete all removed components that can be safely deleted and deprecate the other components. - Delete: Delete removed components, except for custom objects and custom fields, that don't have dependencies.",
+          "permissibleValues": ["DeprecateOnly", "Mixed", "Delete"],
+          "defaultValue": "Mixed"
+        }
+      ]
+    },
+    {
+      "name": "package install report",
+      "description": "Retrieve the status of a package installation request.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--request-id",
+          "description": "ID of the package install request you want to check; starts with 0Hf."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "package installed list",
+      "description": "List the org's installed packages.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "package list",
+      "description": "List all packages in the Dev Hub org.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--verbose",
+          "description": "Display extended package detail.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package push-upgrade abort",
+      "description": "Abort a package push upgrade that has been scheduled. Only push upgrade requests with a status of Created or Pending can be aborted.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--push-request-id",
+          "description": "ID of the package push request (starts with 0DV). This ID is returned after the package push-upgrade schedule command completes successfully."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "package push-upgrade list",
+      "description": "Lists the status of push upgrade requests for a given package.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "Package ID (starts with 033) of the package that you want push upgrade information for."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--scheduled-last-days",
+          "description": "Number of days in the past for which to display the list of push upgrade requests that were scheduled. Used to filter the list output to only recently scheduled push upgrades."
+        },
+        {
+          "name": "--status",
+          "description": "Status used to filter the list output Valid values are: Created, Canceled, Pending, In Progress, Failed, or Succeeded",
+          "permissibleValues": ["Created", "Cancelled", "Pending", "In Progress", "Failed", "Succeeded"]
+        },
+        {
+          "name": "--show-push-migrations-only",
+          "description": "Display only push upgrade requests for package migrations.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package push-upgrade report",
+      "description": "Retrieve the status of a package push upgrade.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--push-request-id",
+          "description": "ID of the package push request (starts with 0DV). This ID is returned after the package push-upgrade schedule command completes successfully."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "package push-upgrade schedule",
+      "description": "Schedule a package push upgrade.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org that owns the package. Overrides the value of the target-dev-hub configuration variable, if set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 04t) of the package version that the package is being upgraded to. The package version must be an active, non-beta package version."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--start-time",
+          "description": "Date and time (UTC) when the push upgrade is processed. Set to the earliest time that you want Salesforce to attempt to start the upgrade. Scheduled push upgrades begin as soon as resources are available on the Salesforce instance, which is either at or after the start time you specify. In certain scenarios, the push upgrade starts a few hours after the scheduled start time. As a best practice, schedule push upgrades at off-peak hours like 1:00 AM Saturday. If you don't specify this flag, the push upgrade is scheduled to run as soon as resources are available on the Salesforce instance."
+        },
+        {
+          "name": "--org-list",
+          "description": "Comma-separated list of subscriber org IDs that need the package upgrade. Either --org-list or --org-file must be specified."
+        },
+        {
+          "name": "--org-file",
+          "description": "Filename of the CSV file that contains the list of subscriber org IDs that need the package upgrade. Either --org-list or --org-file must be specified. The file must contain one org per line. The org ID must be the only value in each row. All listed orgs must have a package version installed in their org that is lower than the package version you specified for the --package flag."
+        },
+        {
+          "name": "--migrate-to-2gp",
+          "description": "Upgrade from a first-generation managed package (1GP) to a second-generation managed package (2GP). Required when you’re pushing a 2GP package to orgs with the 1GP version installed.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package uninstall",
+      "description": "Uninstall a second-generation package from the target org.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 04t) or alias of the package version to uninstall."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for uninstall status.",
+          "defaultValue": "0"
+        }
+      ]
+    },
+    {
+      "name": "package uninstall report",
+      "description": "Retrieve the status of a package uninstall request.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--request-id",
+          "description": "ID of the package uninstall request you want to check; starts with 06y."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "package update",
+      "description": "Update package details.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 0Ho) or alias of the package to update."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--name",
+          "description": "New name of the package."
+        },
+        {
+          "name": "--description",
+          "description": "New description of the package."
+        },
+        {
+          "name": "--error-notification-username",
+          "description": "Active Dev Hub user designated to receive email notifications for package errors. Email notifications include information about unhandled Apex exceptions, and install, upgrade, or uninstall failures associated with your package."
+        },
+        {
+          "name": "--enable-app-analytics",
+          "description": "Enable AppExchange App Analytics usage data collection on this managed package and its components.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package version create",
+      "description": "Create a package version in the Dev Hub org.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--branch",
+          "description": "Name of the branch in your source control system that the package version is based on."
+        },
+        {
+          "name": "--code-coverage",
+          "description": "Calculate and store the code coverage percentage by running the packaged Apex tests included in this package version. Before you can promote and release a managed or unlocked package version, the Apex code must meet a minimum 75% code coverage requirement. We don’t calculate code coverage for org-dependent unlocked packages or for package versions that specify --skip-validation.",
+          "type": "boolean"
+        },
+        {
+          "name": "--definition-file",
+          "description": "Path to a definition file similar to scratch org definition file that contains the list of features and org preferences that the metadata of the package version depends on. For a patch version, the features specified in this file are ignored, and instead the features specified for the ancestor version are used."
+        },
+        {
+          "name": "--installation-key",
+          "description": "Installation key for key-protected package. (either --installation-key or --installation-key-bypass is required)"
+        },
+        {
+          "name": "--installation-key-bypass",
+          "description": "Bypass the installation key requirement. (either --installation-key or --installation-key-bypass is required) If you bypass this requirement, anyone can install your package.",
+          "type": "boolean"
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 0Ho) or alias of the package to create a version of."
+        },
+        {
+          "name": "--path",
+          "description": "Path to the directory that contains the contents of the package."
+        },
+        {
+          "name": "--post-install-script",
+          "description": "Name of the post-install script; applies to managed packages only. The post-install script is an Apex class within this package that is run in the installing org after installations or upgrades of this package version."
+        },
+        {
+          "name": "--post-install-url",
+          "description": "Post-install instructions URL. The contents of the post-installation instructions URL are displayed in the UI after installation of the package version."
+        },
+        {
+          "name": "--releasenotes-url",
+          "description": "Release notes URL. This link is displayed in the package installation UI to provide release notes for this package version to subscribers."
+        },
+        {
+          "name": "--skip-ancestor-check",
+          "description": "Overrides ancestry requirements, which allows you to specify a package ancestor that isn’t the highest released package version.",
+          "type": "boolean"
+        },
+        {
+          "name": "--skip-validation",
+          "description": "Skip validation during package version creation; you can’t promote unvalidated package versions. Skips validation of dependencies, package ancestors, and metadata during package version creation. Skipping validation reduces the time it takes to create a new package version, but you can promote only validated package versions. Skipping validation can suppress important errors that can surface at a later stage. You can specify skip validation or code coverage, but not both. Code coverage is calculated during validation.",
+          "type": "boolean"
+        },
+        {
+          "name": "--async-validation",
+          "description": "Return a new package version before completing package validations. Specifying async validation returns the package version earlier in the process, allowing you to install and test the new version right away. If your development team is using continuous integration (CI) scripts, async validation can reduce your overall CI run time.",
+          "type": "boolean"
+        },
+        {
+          "name": "--tag",
+          "description": "Package version’s tag."
+        },
+        {
+          "name": "--uninstall-script",
+          "description": "Uninstall script name; applies to managed packages only. The uninstall script is an Apex class within this package that is run in the installing org after uninstallations of this package."
+        },
+        {
+          "name": "--version-description",
+          "description": "Description of the package version to be created; overrides the sfdx-project.json value."
+        },
+        {
+          "name": "--version-name",
+          "description": "Name of the package version to be created; overrides the sfdx-project.json value."
+        },
+        {
+          "name": "--version-number",
+          "description": "Version number of the package version to be created; overrides the sfdx-project.json value. For information about the format of the version number, see https://developer.salesforce.com/docs/atlas.en-us.pkg2_dev.meta/pkg2_dev/sfdx_dev2gp_config_file.htm."
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the package version to be created.",
+          "defaultValue": "0"
+        },
+        {
+          "name": "--language",
+          "description": "Language for the package. Specify the language using a language code listed under \"Supported Languages\" in Salesforce Help. If no language is specified, the language defaults to the language of the Dev Hub user who created the package."
+        },
+        {
+          "name": "--verbose",
+          "description": "Display verbose command output. Display verbose command output. When polling for the status of the creation, this will output status and timeout data on a separate line for each poll request, which is useful in CI systems where timeouts can occur with long periods of no output from commands.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package version create list",
+      "description": "List package version creation requests.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--created-last-days",
+          "description": "Number of days since the request was created, starting at 00:00:00 of first day to now. Use 0 for today."
+        },
+        {
+          "name": "--status",
+          "description": "Status of the version creation request, used to filter the list.",
+          "permissibleValues": ["Queued", "InProgress", "Success", "Error"]
+        },
+        {
+          "name": "--show-conversions-only",
+          "description": "Filter the list output to display only converted package version.",
+          "type": "boolean"
+        },
+        {
+          "name": "--verbose",
+          "description": "Displays additional information at a slight performance cost, such as the version name and number for each package version create request.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package version create report",
+      "description": "Retrieve details about a package version creation request.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package-create-request-id",
+          "description": "ID (starts with 08c) of the package version creation request you want to display."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "package version delete",
+      "description": "Delete a package version.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 04t) or alias of the package version to delete."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--no-prompt",
+          "description": "Don’t prompt before deleting the package version.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package version displayancestry",
+      "description": "Display the ancestry tree for a 2GP managed package version.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID or alias of the package (starts with 0Ho) or package version (starts with 04t) to display ancestry for. If you specify a package ID (starts with 0Ho) or alias, the ancestor tree for every package version associated with the package ID is displayed. If you specify a package version (starts with 04t) or alias, the ancestry tree of the specified package version is displayed."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--dot-code",
+          "description": "Display the ancestry tree in DOT code. You can use the DOT code output in graph visualization software to create tree visualizations.",
+          "type": "boolean"
+        },
+        {
+          "name": "--verbose",
+          "description": "Display both the package version ID (starts with 04t) and the version number (major.minor.patch.build) in the ancestry tree.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package version displaydependencies",
+      "description": "Display the dependency graph for an unlocked or 2GP managed package version.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID or alias of the package version (starts with 04t) or the package version create request (starts with 08c) to display the dependency graph for."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--edge-direction",
+          "description": "Order (root-first or root-last) in which the dependencies are displayed.",
+          "permissibleValues": ["root-first", "root-last"],
+          "defaultValue": "root-first"
+        },
+        {
+          "name": "--verbose",
+          "description": "Display both the package version ID (starts with 04t) and the version number (major.minor.patch.build) in each node.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package version list",
+      "description": "List all package versions in the Dev Hub org.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--created-last-days",
+          "description": "Number of days since the request was created, starting at 00:00:00 of first day to now. Use 0 for today."
+        },
+        {
+          "name": "--concise",
+          "description": "Display limited package version details.",
+          "type": "boolean"
+        },
+        {
+          "name": "--show-conversions-only",
+          "description": "Filter the list output to display only converted package version.",
+          "type": "boolean"
+        },
+        {
+          "name": "--modified-last-days",
+          "description": "Number of days since the items were modified, starting at 00:00:00 of first day to now. Use 0 for today."
+        },
+        {
+          "name": "--packages",
+          "description": "Comma-delimited list of packages (aliases or 0Ho IDs) to list."
+        },
+        {
+          "name": "--released",
+          "description": "Display released versions only (IsReleased=true).",
+          "type": "boolean"
+        },
+        {
+          "name": "--branch",
+          "description": "Branch in your source control system used to filter the results; only package versions based on the specified branch are listed."
+        },
+        {
+          "name": "--order-by",
+          "description": "Package version fields used to order the list."
+        },
+        {
+          "name": "--verbose",
+          "description": "Display extended package version details.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package version promote",
+      "description": "Promote a package version to released.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 04t) or alias of the package version to promote."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--no-prompt",
+          "description": "Don't prompt to confirm setting the package version as released.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package version report",
+      "description": "Retrieve details about a package version in the Dev Hub org.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 04t) or alias of the package to retrieve details for."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--verbose",
+          "description": "Display extended package version details.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "package version update",
+      "description": "Update a package version.",
+      "requiredFlags": [
+        {
+          "name": "--target-dev-hub",
+          "description": "Username or alias of the Dev Hub org. Not required if the `target-dev-hub` configuration variable is already set."
+        },
+        {
+          "name": "--package",
+          "description": "ID (starts with 04t) or alias of the package to update a version of."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--version-name",
+          "description": "New package version name."
+        },
+        {
+          "name": "--version-description",
+          "description": "New package version description."
+        },
+        {
+          "name": "--branch",
+          "description": "New package version branch."
+        },
+        {
+          "name": "--tag",
+          "description": "New package version tag."
+        },
+        {
+          "name": "--installation-key",
+          "description": "New installation key for key-protected package (default: null)"
+        }
+      ]
+    }
+  ]
+}

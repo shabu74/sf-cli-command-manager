@@ -1,0 +1,147 @@
+{
+  "commands": [
+    {
+      "name": "dev audit messages",
+      "description": "Audit messages in a plugin's messages directory to locate unused messages and missing messages that have references in source code.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--project-dir",
+          "description": "Location of the project where messages are to be audited.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--messages-dir",
+          "description": "Directory that contains the plugin's message files. The default is the \"messages\" directory in the current working directory.",
+          "defaultValue": "messages"
+        },
+        {
+          "name": "--source-dir",
+          "description": "Directory that contains the plugin's source code. The default is the \"src\" directory in the current working directory.",
+          "defaultValue": "src"
+        }
+      ]
+    },
+    {
+      "name": "dev convert messages",
+      "description": "Convert a .json messages file into Markdown.",
+      "requiredFlags": [
+        {
+          "name": "--file-name",
+          "description": "Filename to convert."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--project-dir",
+          "description": "Location of the project whose messages are to be converted.",
+          "defaultValue": "."
+        }
+      ]
+    },
+    {
+      "name": "dev convert script",
+      "description": "Convert a script file that contains deprecated sfdx-style commands to use the new sf-style commands instead.",
+      "requiredFlags": [
+        {
+          "name": "--script",
+          "description": "Filepath to the script you want to convert."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        }
+      ]
+    },
+    {
+      "name": "dev generate command",
+      "description": "Generate a new sf command.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the new command. Use colons to separate the topic and command names."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--force",
+          "description": "Overwrite existing files.",
+          "type": "boolean"
+        },
+        {
+          "name": "--dry-run",
+          "description": "Display the changes that would be made without writing them to disk.",
+          "type": "boolean"
+        },
+        {
+          "name": "--nuts",
+          "description": "Generate a NUT test file for the command.",
+          "type": "boolean"
+        },
+        {
+          "name": "--unit",
+          "description": "Generate a unit test file for the command.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "dev generate flag",
+      "description": "Generate a flag for an existing command.",
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--dry-run",
+          "description": "Print new flag code instead of adding it to the command file.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "dev generate plugin",
+      "description": "Generate a new sf plugin.",
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--dry-run",
+          "description": "Display the changes that would be made without writing them to disk.",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

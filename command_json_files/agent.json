@@ -1,0 +1,508 @@
+{
+  "commands": [
+    {
+      "name": "agent activate",
+      "description": "Activate an agent in an org.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--api-name",
+          "description": "API name of the agent to activate."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "agent create",
+      "description": "Create an agent in your org using a local agent spec file.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--name",
+          "description": "Name (label) of the new agent."
+        },
+        {
+          "name": "--api-name",
+          "description": "API name of the new agent; if not specified, the API name is derived from the agent name (label); the API name must not exist in the org."
+        },
+        {
+          "name": "--spec",
+          "description": "Path to an agent spec file."
+        },
+        {
+          "name": "--preview",
+          "description": "Preview the agent without saving it in your org.",
+          "type": "boolean"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "agent deactivate",
+      "description": "Deactivate an agent in an org.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--api-name",
+          "description": "API name of the agent to deactivate."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "agent generate agent-spec",
+      "description": "Generate an agent spec, which is a YAML file that captures what an agent can do.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--type",
+          "description": "Type of agent to create. Internal types are copilots used internally by your company and customer types are the agents you create for your customers.",
+          "permissibleValues": [
+            "customer",
+            "internal"
+          ]
+        },
+        {
+          "name": "--role",
+          "description": "Role of the agent."
+        },
+        {
+          "name": "--company-name",
+          "description": "Name of your company."
+        },
+        {
+          "name": "--company-description",
+          "description": "Description of your company."
+        },
+        {
+          "name": "--company-website",
+          "description": "Website URL of your company."
+        },
+        {
+          "name": "--max-topics",
+          "description": "Maximum number of topics to generate in the agent spec; default is 5.",
+          "defaultValue": "5"
+        },
+        {
+          "name": "--agent-user",
+          "description": "Username of a user in your org to assign to your agent; determines what your agent can access and do."
+        },
+        {
+          "name": "--enrich-logs",
+          "description": "Adds agent conversation data to event logs so you can view all agent session activity in one place.",
+          "permissibleValues": [
+            "true",
+            "false"
+          ]
+        },
+        {
+          "name": "--tone",
+          "description": "Conversational style of the agent, such as how it expresses your brand personality in its messages through word choice, punctuation, and sentence structure.",
+          "permissibleValues": [
+            "formal",
+            "casual",
+            "neutral"
+          ]
+        },
+        {
+          "name": "--spec",
+          "description": "Agent spec file, in YAML format, to use as input to the command."
+        },
+        {
+          "name": "--output-file",
+          "description": "Path for the generated YAML agent spec file; can be an absolute or relative path."
+        },
+        {
+          "name": "--full-interview",
+          "description": "Prompt for both required and optional flags.",
+          "type": "boolean"
+        },
+        {
+          "name": "--prompt-template",
+          "description": "API name of a customized prompt template to use instead of the default prompt template."
+        },
+        {
+          "name": "--grounding-context",
+          "description": "Context information and personalization that's added to your prompts when using a custom prompt template."
+        },
+        {
+          "name": "--force-overwrite",
+          "description": "Don't prompt the user to confirm that an existing spec file will be overwritten.",
+          "type": "boolean"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "agent generate template",
+      "description": "Generate an agent template from an existing agent in your DX project so you can then package the template in a managed package.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--agent-version",
+          "description": "Version of the agent (BotVersion)."
+        },
+        {
+          "name": "--agent-file",
+          "description": "Path to an agent (Bot) metadata file."
+        }
+      ]
+    },
+    {
+      "name": "agent generate test-spec",
+      "description": "Generate an agent test spec, which is a YAML file that lists the test cases for testing a specific agent.",
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--from-definition",
+          "description": "Filepath to the AIEvaluationDefinition metadata XML file in your DX project that you want to convert to a test spec YAML file."
+        },
+        {
+          "name": "--force-overwrite",
+          "description": "Don't prompt for confirmation when overwriting an existing test spec YAML file.",
+          "type": "boolean"
+        },
+        {
+          "name": "--output-file",
+          "description": "Name of the generated test spec YAML file. Default value is specs/<AGENT_API_NAME>-testSpec.yaml.",
+          "defaultValue": "specs/<AGENT_API_NAME>-testSpec.yaml"
+        }
+      ]
+    },
+    {
+      "name": "agent preview (Beta)",
+      "description": "Interact with an active agent to preview how the agent responds to your statements, questions, and commands (utterances).",
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--api-name",
+          "description": "API name of the agent you want to interact with."
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory where conversation transcripts are saved."
+        },
+        {
+          "name": "--apex-debug",
+          "description": "Enable Apex debug logging during the agent preview conversation.",
+          "type": "boolean"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        },
+        {
+          "name": "--client-app",
+          "description": "Name of the linked client app to use for the agent connection. You must have previously created this link with org login web --client-app. Run org display to see the available linked client apps."
+        }
+      ]
+    },
+    {
+      "name": "agent test create",
+      "description": "Create an agent test in your org using a local test spec YAML file.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-name",
+          "description": "API name of the new test; the API name must not exist in the org."
+        },
+        {
+          "name": "--spec",
+          "description": "Path to the test spec YAML file."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--preview",
+          "description": "Preview the test metadata file (AiEvaluationDefinition) without deploying to your org.",
+          "type": "boolean"
+        },
+        {
+          "name": "--force-overwrite",
+          "description": "Don't prompt for confirmation when overwriting an existing test (based on API name) in your org.",
+          "type": "boolean"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "agent test list",
+      "description": "List the available agent tests in your org.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "agent test results",
+      "description": "Get the results of a completed agent test run.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--result-format",
+          "description": "Format of the agent test run results. Permissible values are: json, human, junit, tap. Default value: human.",
+          "permissibleValues": [
+            "json",
+            "human",
+            "junit",
+            "tap"
+          ],
+          "defaultValue": "human"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory to write the agent test results into. If the agent test run completes, write the results to the specified directory. If the test is still running, the test results aren't written."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the completed agent test run."
+        }
+      ]
+    },
+    {
+      "name": "agent test resume",
+      "description": "Resume an agent test that you previously started in your org so you can view the test results.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the original agent test run."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the most recent agent test run.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete and display results to the terminal window."
+        },
+        {
+          "name": "--result-format",
+          "description": "Format of the agent test run results. Permissible values are: json, human, junit, tap. Default value: human.",
+          "permissibleValues": [
+            "json",
+            "human",
+            "junit",
+            "tap"
+          ],
+          "defaultValue": "human"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory to write the agent test results into. If the agent test run completes, write the results to the specified directory. If the test is still running, the test results aren't written."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    },
+    {
+      "name": "agent test run",
+      "description": "Start an agent test in your org.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--api-name",
+          "description": "API name of the agent test to run; corresponds to the name of the AiEvaluationDefinition metadata component that implements the agent test."
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete and display results to the terminal window."
+        },
+        {
+          "name": "--result-format",
+          "description": "Format of the agent test run results. Permissible values are: json, human, junit, tap. Default value: human.",
+          "permissibleValues": [
+            "json",
+            "human",
+            "junit",
+            "tap"
+          ],
+          "defaultValue": "human"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory to write the agent test results into. If the agent test run completes, write the results to the specified directory. If the test is still running, the test results aren't written."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    }
+  ]
+}

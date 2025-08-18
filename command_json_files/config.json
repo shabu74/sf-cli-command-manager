@@ -1,0 +1,79 @@
+{
+  "commands": [
+    {
+      "name": "config get",
+      "description": "Get the value of a configuration variable.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--verbose",
+          "description": "Display whether the configuration variables are set locally or globally.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "config list",
+      "description": "List the configuration variables that you've previously set.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        }
+      ]
+    },
+    {
+      "name": "config set",
+      "description": "Set one or more configuration variables, such as your default org.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--global",
+          "description": "Set the configuration variables globally, so they can be used from any Salesforce DX project.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "config unset",
+      "description": "Unset local or global configuration variables.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--global",
+          "description": "Unset the configuration variables globally.",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

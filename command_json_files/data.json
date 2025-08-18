@@ -1,0 +1,927 @@
+{
+  "commands": [
+    {
+      "name": "data bulk results",
+      "description": "Get the results of a bulk ingest job that you previously ran.",
+      "requiredFlags": [
+        {
+          "name": "--job-id",
+          "description": "Job ID of the bulk job."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "data create file",
+      "description": "Upload a local file to an org.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--file",
+          "description": "Path of file to upload."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--title",
+          "description": "New title given to the file (ContentDocument) after it's uploaded."
+        },
+        {
+          "name": "--parent-id",
+          "description": "ID of the record to attach the file to."
+        }
+      ]
+    },
+    {
+      "name": "data create record",
+      "description": "Create and insert a record into a Salesforce or Tooling API object.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce or Tooling API object that you're inserting a record into."
+        },
+        {
+          "name": "--values",
+          "description": "Values for the flags in the form <fieldName>=<value>, separate multiple pairs with spaces. When specifying fields, use the format <fieldName>=<value>. Enclose all field-value pairs in one set of double quotation marks, delimited by spaces. Enclose values that contain spaces in single quotes."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--use-tooling-api",
+          "description": "Use Tooling API so you can insert a record in a Tooling API object.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "data delete bulk",
+      "description": "Bulk delete records from an org using a CSV file. Uses Bulk API 2.0.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--file",
+          "description": "CSV file that contains the IDs of the records to update or delete. The CSV file must have only one column (\"Id\") and then the list of record IDs you want to delete, one ID per line."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce object, either standard or custom, that you want to update or delete records from."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete before displaying the results. When you execute this command, it starts a job, displays the ID, and then immediately returns control of the terminal to you by default. If you prefer to wait, set the --wait flag to the number of minutes; if it times out, the command outputs the IDs. Use the job ID to check the status of the job with the \"sf data delete resume\" command."
+        },
+        {
+          "name": "--async",
+          "description": "The parameter --async has been deprecated and will be removed in vNaN.0 or later. Use instead. Run the command asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--line-ending",
+          "description": "Line ending used in the CSV file. Default value on Windows is `CRLF`; on macOS and Linux it's `LF`.",
+          "permissibleValues": [
+            "CRLF",
+            "LF"
+          ]
+        },
+        {
+          "name": "--hard-delete",
+          "description": "Mark the records as immediately eligible for deletion by your org. If you don't specify this flag, the deleted records go into the Recycle Bin. You must have the \"Bulk API Hard Delete\" system permission to use this flag. The permission is disabled by default and can be enabled only by a system administrator.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "data delete record",
+      "description": "Deletes a single record from a Salesforce or Tooling API object.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce or Tooling API object that you're deleting a record from."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--record-id",
+          "description": "ID of the record you're deleting."
+        },
+        {
+          "name": "--where",
+          "description": "List of <fieldName>=<value> pairs that identify the record you want to delete. When specifying field-value pairs, use the format <fieldName>=<value>. Enclose all field-value pairs in one set of double quotation marks, delimited by spaces. Enclose values that contain spaces in single quotes."
+        },
+        {
+          "name": "--use-tooling-api",
+          "description": "Use Tooling API so you can delete a record from a Tooling API object.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "data delete resume",
+      "description": "Resume a bulk delete job that you previously started. Uses Bulk API 2.0.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the \"target-org\" configuration variable is already set."
+        },
+        {
+          "name": "--job-id",
+          "description": "ID of the job you want to resume."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the ID of the most recently-run bulk job.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete before displaying the results."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "data export bulk",
+      "description": "Bulk export records from an org into a file using a SOQL query. Uses Bulk API 2.0.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--output-file",
+          "description": "File where records are written."
+        },
+        {
+          "name": "--result-format",
+          "description": "Format to write the results.",
+          "permissibleValues": [
+            "csv",
+            "json"
+          ],
+          "defaultValue": "csv"
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--wait",
+          "description": "Time to wait for the command to finish, in minutes."
+        },
+        {
+          "name": "--async",
+          "description": "The parameter --async has been deprecated and will be removed in vNaN.0 or later. Use instead. Don't wait for the job to complete.",
+          "type": "boolean"
+        },
+        {
+          "name": "--query",
+          "description": "SOQL query to execute."
+        },
+        {
+          "name": "--query-file",
+          "description": "File that contains the SOQL query."
+        },
+        {
+          "name": "--all-rows",
+          "description": "Include records that have been soft-deleted due to a merge or delete. By default, deleted records are not returned.",
+          "type": "boolean"
+        },
+        {
+          "name": "--column-delimiter",
+          "description": "Column delimiter to be used when writing CSV output. Default is COMMA.",
+          "permissibleValues": [
+            "BACKQUOTE",
+            "CARET",
+            "COMMA",
+            "PIPE",
+            "SEMICOLON",
+            "TAB"
+          ]
+        },
+        {
+          "name": "--line-ending",
+          "description": "Line ending to be used when writing CSV output. Default value on Windows is is `CRLF`; on macOS and Linux it's `LR`.",
+          "permissibleValues": [
+            "LF",
+            "CRLF"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "data export resume",
+      "description": "Resume a bulk export job that you previously started. Uses Bulk API 2.0.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the bulk export."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the bulk export job that was most recently run.",
+          "type": "boolean"
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "data export tree",
+      "description": "Export data from an org into one or more JSON files.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--query",
+          "description": "SOQL query, or filepath of a file that contains the query, to retrieve records."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--plan",
+          "description": "Generate multiple sObject tree files and a plan definition file for aggregated import.",
+          "type": "boolean"
+        },
+        {
+          "name": "--prefix",
+          "description": "Prefix of generated files."
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory in which to generate the JSON files; default is current directory."
+        }
+      ]
+    },
+    {
+      "name": "data get record",
+      "description": "Retrieve and display a single record of a Salesforce or Tooling API object.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce or Tooling API object that you're retrieving a record from."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--record-id",
+          "description": "ID of the record you're retrieving."
+        },
+        {
+          "name": "--where",
+          "description": "List of <fieldName>=<value> pairs that identify the record you want to display. When specifying field-value pairs, use the format <fieldName>=<value>. Enclose all field-value pairs in one set of double quotation marks, delimited by spaces. Enclose values that contain spaces in single quotes."
+        },
+        {
+          "name": "--use-tooling-api",
+          "description": "Use Tooling API so you can retrieve a record from a Tooling API object.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "data import bulk",
+      "description": "Bulk import records into a Salesforce object from a CSV file. Uses Bulk API 2.0.",
+      "requiredFlags": [
+        {
+          "name": "--file",
+          "description": "CSV file that contains the Salesforce object records you want to import."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce object, either standard or custom, into which you're importing records."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--async",
+          "description": "The parameter --async has been deprecated and will be removed in vNaN.0 or later. Use instead. Don't wait for the command to complete.",
+          "type": "boolean"
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--wait",
+          "description": "Time to wait for the command to finish, in minutes."
+        },
+        {
+          "name": "--line-ending",
+          "description": "Line ending used in the CSV file. Default value on Windows is `CRLF`; on macOS and Linux it's `LF`.",
+          "permissibleValues": [
+            "CRLF",
+            "LF"
+          ]
+        },
+        {
+          "name": "--column-delimiter",
+          "description": "Column delimiter used in the CSV file.",
+          "permissibleValues": [
+            "BACKQUOTE",
+            "CARET",
+            "COMMA",
+            "PIPE",
+            "SEMICOLON",
+            "TAB"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "data import resume",
+      "description": "Resume a bulk import job that you previously started. Uses Bulk API 2.0.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the bulk import job that was most recently run.",
+          "type": "boolean"
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the bulk import."
+        },
+        {
+          "name": "--wait",
+          "description": "Time to wait for the command to finish, in minutes."
+        }
+      ]
+    },
+    {
+      "name": "data import tree",
+      "description": "Import data from one or more JSON files into an org.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--files",
+          "description": "Comma-separated and in-order JSON files that contain the records, in sObject tree format, that you want to insert."
+        },
+        {
+          "name": "--plan",
+          "description": "Plan definition file to insert multiple data files. Unlike when you use the `--files` flag, the files listed in the plan definition file **can** contain more then 200 records. When the CLI executes the import, it automatically batches the records to comply with the 200 record limit set by the API. The order in which you list the files in the plan definition file matters. Specifically, records with lookups to records in another file should be listed AFTER that file. For example, let's say you're loading Account and Contact records, and the contacts have references to those accounts. Be sure you list the Accounts file before the Contacts file. The plan definition file has the following schema: - items(object) - SObject Type: Definition of records to be insert per SObject Type - sobject(string) - Name of SObject: Child file references must have SObject roots of this type - files(array) - Files: An array of files paths to load"
+        }
+      ]
+    },
+    {
+      "name": "data query",
+      "description": "Execute a SOQL query.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--query",
+          "description": "SOQL query to execute."
+        },
+        {
+          "name": "--file",
+          "description": "File that contains the SOQL query."
+        },
+        {
+          "name": "--use-tooling-api",
+          "description": "Use Tooling API so you can run queries on Tooling API objects.",
+          "type": "boolean"
+        },
+        {
+          "name": "--all-rows",
+          "description": "Include deleted records. By default, deleted records are not returned.",
+          "type": "boolean"
+        },
+        {
+          "name": "--result-format",
+          "description": "Format to display the results; the --json flag overrides this flag.",
+          "permissibleValues": [
+            "human",
+            "csv",
+            "json"
+          ],
+          "defaultValue": "human"
+        },
+        {
+          "name": "--output-file",
+          "description": "File where records are written; only CSV and JSON output formats are supported."
+        }
+      ]
+    },
+    {
+      "name": "data resume",
+      "description": "View the status of a bulk data load job or batch.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--job-id",
+          "description": "ID of the job whose status you want to view."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--batch-id",
+          "description": "ID of the batch whose status you want to view; you must also specify the job ID."
+        }
+      ]
+    },
+    {
+      "name": "data search",
+      "description": "Execute a SOSL text-based search query.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--query",
+          "description": "SOSL query to execute."
+        },
+        {
+          "name": "--file",
+          "description": "File that contains the SOSL query."
+        },
+        {
+          "name": "--result-format",
+          "description": "Format to display the results, or to write to disk if you specify \"csv\".",
+          "permissibleValues": [
+            "human",
+            "csv",
+            "json"
+          ],
+          "defaultValue": "human"
+        }
+      ]
+    },
+    {
+      "name": "data update bulk",
+      "description": "Bulk update records to an org from a CSV file. Uses Bulk API 2.0.",
+      "requiredFlags": [
+        {
+          "name": "--file",
+          "description": "CSV file that contains the Salesforce object records you want to update."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce object, either standard or custom, which you are updating."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--async",
+          "description": "The parameter --async has been deprecated and will be removed in vNaN.0 or later. Use instead. Don't wait for the command to complete.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Time to wait for the command to finish, in minutes."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--line-ending",
+          "description": "Line ending used in the CSV file. Default value on Windows is `CRLF`; on macOS and Linux it's `LF`.",
+          "permissibleValues": [
+            "CRLF",
+            "LF"
+          ]
+        },
+        {
+          "name": "--column-delimiter",
+          "description": "Column delimiter used in the CSV file.",
+          "permissibleValues": [
+            "BACKQUOTE",
+            "CARET",
+            "COMMA",
+            "PIPE",
+            "SEMICOLON",
+            "TAB"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "data update record",
+      "description": "Updates a single record of a Salesforce or Tooling API object.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce or Tooling API object that contains the record you're updating."
+        },
+        {
+          "name": "--values",
+          "description": "Fields that you're updating, in the format of <fieldName>=<value> pairs."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--record-id",
+          "description": "ID of the record you're updating."
+        },
+        {
+          "name": "--where",
+          "description": "List of <fieldName>=<value> pairs that identify the record you want to update. When using field-value pairs for both identifying the record and specifiyng the new field values, use the format <fieldName>=<value>. Enclose all field-value pairs in one set of double quotation marks, delimited by spaces. Enclose values that contain spaces in single quotes."
+        },
+        {
+          "name": "--use-tooling-api",
+          "description": "Use Tooling API so you can update a record in a Tooling API object.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "data update resume",
+      "description": "Resume a bulk update job that you previously started. Uses Bulk API 2.0.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the bulk update job that was most recently run.",
+          "type": "boolean"
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the bulk update."
+        },
+        {
+          "name": "--wait",
+          "description": "Time to wait for the command to finish, in minutes."
+        }
+      ]
+    },
+    {
+      "name": "data upsert bulk",
+      "description": "Bulk upsert records to an org from a CSV file. Uses Bulk API 2.0.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--file",
+          "description": "CSV file that contains the IDs of the records to update or delete."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce object, either standard or custom, that you want to update or delete records from."
+        },
+        {
+          "name": "--external-id",
+          "description": "Name of the external ID field, or the Id field."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete before displaying the results."
+        },
+        {
+          "name": "--async",
+          "description": "The parameter --async has been deprecated and will be removed in vNaN.0 or later. Use instead. Run the command asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--line-ending",
+          "description": "Line ending used in the CSV file. Default value on Windows is `CRLF`; on macOS and Linux it's `LF`.",
+          "permissibleValues": [
+            "CRLF",
+            "LF"
+          ]
+        },
+        {
+          "name": "--column-delimiter",
+          "description": "Column delimiter used in the CSV file.",
+          "permissibleValues": [
+            "BACKQUOTE",
+            "CARET",
+            "COMMA",
+            "PIPE",
+            "SEMICOLON",
+            "TAB"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "data upsert resume",
+      "description": "Resume a bulk upsert job that you previously started. Uses Bulk API 2.0.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the \"target-org\" configuration variable is already set."
+        },
+        {
+          "name": "--job-id",
+          "description": "ID of the job you want to resume."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the ID of the most recently-run bulk job.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete before displaying the results."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    }
+  ]
+}

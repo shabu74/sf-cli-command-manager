@@ -1,0 +1,56 @@
+{
+  "name": "salesforce-cli-manager",
+  "displayName": "Salesforce CLI Manager",
+  "description": "Manage Salesforce CLI commands with an intuitive interface",
+  "version": "1.0.4",
+  "icon": "icon.png",
+  "publisher": "shabu-thomas",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["salesforce", "cli", "sf", "command", "manager", "apex", "deployment", "org", "project", "metadata"],
+  "activationEvents": [
+    "onCommand:salesforce-cli-manager.openManager"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "salesforce-cli-manager.openManager",
+        "title": "Open Salesforce CLI Manager",
+        "category": "Salesforce"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "salesforce-cli-manager.openManager",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "echo 'No compilation needed'"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shabu74/sf-cli-command-manager.git"
+  },
+  "author": {
+    "name": "Shabu Thomas",
+    "email": "ars.shabu@gmail.com"
+  },
+  "license": "MIT",
+  "files": [
+    "src/**/*",
+    "command_types.json",
+    "command_json_files/**/*",
+    "icon.png"
+  ]
+}

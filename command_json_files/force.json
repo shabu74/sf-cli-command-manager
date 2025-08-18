@@ -1,0 +1,226 @@
+{
+  "commands": [
+    {
+      "name": "force data bulk delete",
+      "description": "Bulk delete records from an org using a CSV file. Uses Bulk API 1.0.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--file",
+          "description": "CSV file that contains the IDs of the records to delete. The CSV file must have only one column (\"Id\") and then the list of record IDs you want to delete, one ID per line."
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce object, either standard or custom, that you want to delete records from."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete before displaying the results. When you execute this command, it starts a job and one or more batches, displays their IDs, and then immediately returns control of the terminal to you by default. If you prefer to wait, set the --wait flag to the number of minutes; if it times out, the command outputs the IDs. Use the job and batch IDs to check the status of the job with the \"sf force data bulk status\" command."
+        }
+      ]
+    },
+    {
+      "name": "force data bulk status",
+      "description": "View the status of a bulk data load job or batch. Uses Bulk API 1.0.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--job-id",
+          "description": "ID of the job whose status you want to view. Run this command using the job ID or batch ID returned from the \"sf force data bulk delete\" or \"sf force data bulk upsert\" commands."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--batch-id",
+          "description": "ID of the batch whose status you want to view; you must also specify the job ID."
+        }
+      ]
+    },
+    {
+      "name": "force data bulk upsert",
+      "description": "Bulk upsert records to an org from a CSV file. Uses Bulk API 1.0.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--external-id",
+          "description": "Name of the external ID field, or the Id field. An upsert refers to inserting a record into a Salesforce object if the record doesn't already exist, or updating it if it does exist."
+        },
+        {
+          "name": "--file",
+          "description": "CSV file that contains the records to upsert. See \"Prepare CSV Files\" in the Bulk API Developer Guide for details on formatting your CSV file. (https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/datafiles_csv_preparing.htm)"
+        },
+        {
+          "name": "--sobject",
+          "description": "API name of the Salesforce object, either standard or custom, that you want to upsert records to."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete before displaying the results. When you execute this command, it starts a job and one or more batches, displays their IDs, and then immediately returns control of the terminal to you by default. If you prefer to wait, set the --wait flag to the number of minutes; if it times out, the command outputs the IDs. Use the job and batch IDs to check the status of the job with the \"sf force data bulk status\" command."
+        },
+        {
+          "name": "--serial",
+          "description": "Run batches in serial mode. By default, the job runs the batches in parallel, which we recommend. You can run jobs serially by specifying the --serial flag. But don't process data in serial mode unless you know this would otherwise result in lock timeouts and you can't reorganize your batches to avoid the locks.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "force lightning lwc test create",
+      "description": "Create a Lightning web component test file with boilerplate code inside a __tests__ directory.",
+      "requiredFlags": [
+        {
+          "name": "--filepath",
+          "description": "Path to Lightning web component .js file to create a test for"
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json",
+          "type": "boolean"
+        },
+        {
+          "name": "--loglevel",
+          "description": "Logging level for this command invocation",
+          "permissibleValues": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
+          "defaultValue": "warn"
+        }
+      ]
+    },
+    {
+      "name": "force lightning lwc test run",
+      "description": "Invoke Lightning Web Components Jest unit tests.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json",
+          "type": "boolean"
+        },
+        {
+          "name": "--loglevel",
+          "description": "Logging level for this command invocation",
+          "permissibleValues": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
+          "defaultValue": "warn"
+        },
+        {
+          "name": "--debug",
+          "description": "Run tests in debug mode",
+          "type": "boolean"
+        },
+        {
+          "name": "--watch",
+          "description": "Run tests in watch mode",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "force lightning lwc test setup",
+      "description": "Install Jest unit testing tools for Lightning Web Components.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json",
+          "type": "boolean"
+        },
+        {
+          "name": "--loglevel",
+          "description": "Logging level for this command invocation",
+          "permissibleValues": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
+          "defaultValue": "warn"
+        }
+      ]
+    }
+  ]
+}

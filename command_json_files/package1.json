@@ -1,0 +1,153 @@
+{
+  "commands": [
+    {
+      "name": "package1 version create",
+      "description": "Create a first-generation package version in the release org.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--package-id",
+          "description": "ID of the metadata package (starts with 033) of which you’re creating a new version."
+        },
+        {
+          "name": "--name",
+          "description": "Package version name."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--description",
+          "description": "Package version description."
+        },
+        {
+          "name": "--version",
+          "description": "Package version in major.minor format, for example, 3.2."
+        },
+        {
+          "name": "--managed-released",
+          "description": "Create a managed package version. To create a beta version, don’t include this parameter.",
+          "type": "boolean"
+        },
+        {
+          "name": "--release-notes-url",
+          "description": "Release notes URL. This link is displayed in the package installation UI to provide release notes for this package version to subscribers."
+        },
+        {
+          "name": "--post-install-url",
+          "description": "Post install URL. The contents of the post-installation instructions URL are displayed in the UI after installation of the package version."
+        },
+        {
+          "name": "--installation-key",
+          "description": "Installation key for key-protected package (default: null)."
+        },
+        {
+          "name": "--wait",
+          "description": "Minutes to wait for the package version to be created (default: 2 minutes)."
+        }
+      ]
+    },
+    {
+      "name": "package1 version create get",
+      "description": "Retrieve the status of a package version creation request.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--request-id",
+          "description": "ID of the PackageUploadRequest (starts with 0HD)."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "package1 version display",
+      "description": "Display details about a first-generation package version.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--package-version-id",
+          "description": "ID (starts with 04t) of the metadata package version whose details you want to display."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "package1 version list",
+      "description": "List package versions for the specified first-generation package or for the org.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--package-id",
+          "description": "Metadata package ID (starts with 033) whose package versions you want to list. If not specified, shows all versions for all packages (managed and unmanaged) in the org."
+        }
+      ]
+    }
+  ]
+}

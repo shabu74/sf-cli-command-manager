@@ -1,0 +1,23 @@
+{
+  "commands": [
+    {
+      "name": "info releasenotes display",
+      "description": "Display Salesforce CLI release notes on the command line.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--version",
+          "description": "CLI version or tag for which to display release notes. By default, this command displays release notes for the currently installed CLI version on your computer. Use the --version flag to view release notes for a different release."
+        }
+      ]
+    }
+  ]
+}

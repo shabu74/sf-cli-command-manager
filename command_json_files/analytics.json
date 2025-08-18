@@ -1,0 +1,34 @@
+{
+  "commands": [
+    {
+      "name": "analytics generate template",
+      "description": "Generate a simple Analytics template.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        }      
+      ],
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the Analytics template."
+        }
+      ]
+    }
+  ]
+}

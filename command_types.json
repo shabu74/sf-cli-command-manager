@@ -1,0 +1,136 @@
+[
+  {
+    "commandType": "agent",
+    "description": "Commands for working with agents",
+    "tags": ["agent", "agentforce"]
+  },
+  {
+    "commandType": "alias",
+    "description": "Commands for managing your aliases. Use the alias commands to manage your aliases",
+    "tags": ["alias"]
+  },
+  {
+    "commandType": "analytics",
+    "description": "Commands for working with analytics assets",
+    "tags": ["analytics"]
+  },
+  {
+    "commandType": "apex",
+    "description": "Commands for creating apex classes and triggers, executing anonymous blocks, running apex tests and viewing apex test results",
+    "tags": ["apex", "apex class", "apex trigger", "execute anonymous", "test class", "test results", "run test", "class", "trigger"]
+  },
+  {
+    "commandType": "api",
+    "description": "Commands for interacting with API calls",
+    "tags": ["api", "api call", "rest api", "api integration"]
+  },
+  {
+    "commandType": "cmdt",
+    "description": "Commands for generating custom metadata types and their records",
+    "tags": ["cmdt", "custom metadata type", "custom metadata record", "custom metadata"]
+  },
+  {
+    "commandType": "code-analyzer",
+    "description": "Commands for analyzing your code to ensure it adheres to best practices",
+    "tags": ["code analyzer", "code analysis", "code quality", "code linting", "code scan", "code scanner", 
+             "security scan", "security scanner", "code security", "security vulnerabilities", "security vulnerability"]
+  },
+  {
+    "commandType": "community",
+    "description": "Commands for creating and publishing Experience Cloud sites",
+    "tags": ["community", "experience cloud"]
+  },
+  {
+    "commandType": "config",
+    "description": "Commands for configuring Salesforce CLI",
+    "tags": ["config", "configuration", "settings", "setting"]
+  },
+  {
+    "commandType": "data",
+    "description": "Commands for managing records in your org",
+    "tags": ["data", "record", "data management", "record management"]
+  },
+  {
+    "commandType": "dev",
+    "description": "Commands for sf plugin development",
+    "tags": ["dev", "development", "plugin development", "plugin dev"]
+  },
+  {
+    "commandType": "doctor",
+    "description": "Commands for diagnosing problems with Salesforce CLI",
+    "tags": ["doctor", "diagnose", "diagnosis"]
+  },
+  {
+    "commandType": "flow",
+    "description": "Commands for testing flows",
+    "tags": ["flow", "flow test", "flow testing", "flow test run", "flow test execution", "flow test run execution"]
+  },
+  {
+    "commandType": "force",
+    "description": "Commands for backward compatibility",
+    "tags": ["data bulk", "bulk data", "lwc test"]
+  },
+  {
+    "commandType": "info",
+    "description": "Commands for accessing Salesforce CLI information from the command line",
+    "tags": ["salesforce cli release", "cli release"]
+  },
+  {
+    "commandType": "lightning",
+    "description": "Commands for working with Lightning Web and Aura components",
+    "tags": ["lightning", "aura", "aura component", "lightning web", "lightning web component", "lwc", "lwc component", "lwc test"]
+  },
+  {
+    "commandType": "org",
+    "description": "Commands for creating and managing orgs and scratch org users",
+    "tags": ["org", "assign permission set", "assign permission set license", "sandbox", "scratch org", 
+             "org management", "sandbox management", "scratch org management", "org information", "user information",
+             "tracking changes", "track changes", "tracking", "snapshot", "list org", "authorization information",
+             "authorization info", "salesforce limits", "limits", "metadata types", "metadata components",
+             "shape", "record count", "login", "authorization", "users", "list users","org login", "logout",
+             "org logout", "open org browser", "refresh sandbox"]
+  },
+  {
+    "commandType": "package",
+    "description": "Commands for developing and installing unlocked packages and managed 2GP packages",
+    "tags": ["package", "package management", "package version"]
+  },
+  {
+    "commandType": "package1",
+    "description": "Commands for developing first-generation managed and unmanaged packages",
+    "tags": ["package1", "package1 management", "package1 version", "package", 
+             "package management", "package version", "first generation package", "first-geneation package"]
+  },
+  {
+    "commandType": "plugins",
+    "description": "Commands for finding and managing plugins",
+    "tags": ["plugins", "plugin", "plugin management", "third party plugins", "third-party plugins"]
+  },
+  {
+    "commandType": "project",
+    "description": "Commands for working with projects, such as deploy and retrieve metadata",
+    "tags": ["project", "project deploy", "project retrieve", "project convert", 
+             "deploy", "retrieve", "convert", "deploy metadata", "retrieve metadata", 
+             "convert metadata", "manifest", "delete metadata", "pipeline"]
+  },
+  {
+    "commandType": "schema",
+    "description": "Commands for generating metadata files",
+    "tags": ["schema", "create field", "create platform event", "create object", "create tab"]
+  },
+  {
+    "commandType": "sobject",
+    "description": "Commands for interacting with Salesforce objects",
+    "tags": ["sobject", "sobject management", "sobject describe", "sobject list", "object metadata", "list objects"]
+  },
+  {
+    "commandType": "static-resource",
+    "description": "Commands for working with static resources",
+    "tags": ["static-resource", "static resource", "static resource management"]
+  },
+  {
+    "commandType": "visualforce",
+    "description": "Commands for working with Visualforce components",
+    "tags": ["visualforce", "visualforce component", "visualforce page"]
+  }
+]

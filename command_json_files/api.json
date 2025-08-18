@@ -1,0 +1,93 @@
+{
+  "commands": [
+    {
+      "name": "api request graphql (Beta)",
+      "description": "Execute a GraphQL statement.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command."
+        },
+        {
+          "name": "--stream-to-file",
+          "description": "Stream responses to a file."
+        },
+        {
+          "name": "--include",
+          "description": "Include the HTTP response status and headers in the output.",
+          "type": "boolean"
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        },
+        {
+          "name": "--body",
+          "description": "File or content with the GraphQL statement. Specify - to read from standard input."
+        }
+      ]
+    },
+    {
+      "name": "api request rest (Beta)",
+      "description": "Make an authenticated HTTP request using the Salesforce REST API.",
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--include",
+          "description": "Include the HTTP response status and headers in the output.",
+          "type": "boolean"
+        },
+        {
+          "name": "--method",
+          "description": "HTTP method for the request.",
+          "permissibleValues": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "HEAD",
+            "DELETE",
+            "OPTIONS",
+            "TRACE"
+          ]
+        },
+        {
+          "name": "--header",
+          "description": "HTTP header in key:value format."
+        },
+        {
+          "name": "--file",
+          "description": "JSON file that contains values for the request header, body, method, and URL. Use this flag instead of specifying the request details with individual flags, such as --body or --method."
+        },
+        {
+          "name": "--stream-to-file",
+          "description": "Stream responses to a file."
+        },
+        {
+          "name": "--body",
+          "description": "File or content for the body of the HTTP request. Specify - to read from standard input or empty string for an empty body. If passing a file, prefix the filename with @."
+        }
+      ],
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the target-org configuration variable is already set."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "commands": [
+    {
+      "name": "lightning generate app",
+      "description": "Generate a Lightning App.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated Lightning App. The name can be up to 40 characters and must start with a letter."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--template",
+          "description": "Template to use for file creation. Supplied parameter values or default values are filled into a copy of the template.",
+          "permissibleValues": [
+            "DefaultLightningApp"
+          ],
+          "defaultValue": "DefaultLightningApp"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "lightning generate component",
+      "description": "Generate a bundle for an Aura component or a Lightning web component.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated Lightning Component. The name can be up to 40 characters and must start with a letter."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--template",
+          "description": "Template to use for file creation. Supplied parameter values or default values are filled into a copy of the template.",
+          "permissibleValues": [
+            "default",
+            "analyticsDashboard",
+            "analyticsDashboardWithStep"
+          ],
+          "defaultValue": "default"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--type",
+          "description": "Type of the component bundle. To generate a Lightning web component, pass \"--type lwc\" to the command. If you don't specify --type, Salesforce CLI generates an Aura component by default.",
+          "permissibleValues": [
+            "aura",
+            "lwc"
+          ],
+          "defaultValue": "aura"
+        }
+      ]
+    },
+    {
+      "name": "lightning generate event",
+      "description": "Generate a Lightning Event.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated Lightning Event. The name can be up to 40 characters and must start with a letter."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--template",
+          "description": "Template to use for file creation. Supplied parameter values or default values are filled into a copy of the template.",
+          "permissibleValues": [
+            "DefaultLightningEvt"
+          ],
+          "defaultValue": "DefaultLightningEvt"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "lightning generate interface",
+      "description": "Generate a Lightning Interface.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated Lightning Interface. The name can be up to 40 characters and must start with a letter."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--template",
+          "description": "Template to use for file creation. Supplied parameter values or default values are filled into a copy of the template.",
+          "permissibleValues": [
+            "DefaultLightningIntf"
+          ],
+          "defaultValue": "DefaultLightningIntf"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "lightning generate test",
+      "description": "Generate a Lightning test.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated Lightning Test. Name of the new Lightning test; can be up to 40 characters and must start with a letter."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--template",
+          "description": "Template to use for file creation. Supplied parameter values or default values are filled into a copy of the template.",
+          "permissibleValues": [
+            "DefaultLightningTest"
+          ],
+          "defaultValue": "DefaultLightningTest"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1193 @@
+{
+  "commands": [
+    {
+      "name": "project convert mdapi",
+      "description": "Convert metadata retrieved via Metadata API into the source format used in Salesforce DX projects.",
+      "requiredFlags": [
+        {
+          "name": "--root-dir",
+          "description": "Root directory that contains the Metadata API–formatted metadata."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory to store your files in after they’re converted to source format; can be an absolute or relative path."
+        },
+        {
+          "name": "--manifest",
+          "description": "File path to manifest (package.xml) of metadata types to convert. If you specify this flag, don’t specify --metadata or --source-dir."
+        },
+        {
+          "name": "--metadata-dir",
+          "description": "Root of directory or zip file of metadata formatted files to convert."
+        },
+        {
+          "name": "--metadata",
+          "description": "Metadata component names to convert."
+        }
+      ]
+    },
+    {
+      "name": "project convert source",
+      "description": "Convert source-formatted files into metadata that you can deploy using Metadata API.",
+      "requiredFlags": [],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "API Version to use in the generated project's manifest. By default, will use the version from sfdx-project.json"
+        },
+        {
+          "name": "--root-dir",
+          "description": "Source directory other than the default package to convert."
+        },
+        {
+          "name": "--output-dir",
+          "description": "Output directory to store the Metadata API–formatted files in.",
+          "defaultValue": "metadataPackage_1753906217444"
+        },
+        {
+          "name": "--package-name",
+          "description": "Name of the package to associate with the metadata-formatted files."
+        },
+        {
+          "name": "--manifest",
+          "description": "Path to the manifest (package.xml) file that specifies the metadata types to convert. If you specify this flag, don’t specify --metadata or --source-dir."
+        },
+        {
+          "name": "--source-dir",
+          "description": "Paths to the local source files to convert."
+        },
+        {
+          "name": "--metadata",
+          "description": "Metadata component names to convert."
+        }
+      ]
+    },
+    {
+      "name": "project convert source-behavior (Beta)",
+      "description": "Enable a behavior of your project source files, and then update your Salesforce DX project to implement the behavior.",
+      "requiredFlags": [
+        {
+          "name": "--behavior",
+          "description": "Behavior to enable; the values correspond to the possible values of the \"sourceBehaviorOption\" option in the \"sfdx-project.json\" file.",
+          "permissibleValues": ["decomposeCustomLabelsBeta2", "decomposeCustomLabelsBeta", "decomposePermissionSetBeta", "decomposePermissionSetBeta2", "decomposeSharingRulesBeta", "decomposeWorkflowBeta", "decomposeExternalServiceRegistrationBeta"]
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--dry-run",
+          "description": "Display what the command would do, but don't make any actual changes.",
+          "type": "boolean"
+        },
+        {
+          "name": "--preserve-temp-dir",
+          "description": "Don't delete the metadata API format temporary directory that this command creates. Useful for debugging.",
+          "type": "boolean"
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org."
+        }
+      ]
+    },
+    {
+      "name": "project delete source",
+      "description": "Delete source from your project and from a non-source-tracked org.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--check-only",
+          "description": "Validate delete command but don't delete anything from the org or the local project.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to finish.",
+          "defaultValue": "33"
+        },
+        {
+          "name": "--tests",
+          "description": "Apex tests to run when --test-level is RunSpecifiedTests."
+        },
+        {
+          "name": "--test-level",
+          "description": "Deployment Apex testing level.",
+          "permissibleValues": ["NoTestRun", "RunSpecifiedTests", "RunLocalTests", "RunAllTestsInOrg"]
+        },
+        {
+          "name": "--no-prompt",
+          "description": "Don't prompt for delete confirmation.",
+          "type": "boolean"
+        },
+        {
+          "name": "--metadata",
+          "description": "Metadata components to delete."
+        },
+        {
+          "name": "--source-dir",
+          "description": "Source file paths to delete."
+        },
+        {
+          "name": "--track-source",
+          "description": "If the delete succeeds, update the source tracking information.",
+          "type": "boolean"
+        },
+        {
+          "name": "--force-overwrite",
+          "description": "Ignore conflict warnings and overwrite changes to the org.",
+          "type": "boolean"
+        },
+        {
+          "name": "--verbose",
+          "description": "Verbose output of the delete result.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "project delete tracking",
+      "description": "Delete all local source tracking information.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--no-prompt",
+          "description": "Don't prompt for source tracking override confirmation.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "project deploy cancel",
+      "description": "Cancel a deploy operation.",
+      "requiredFlags": [],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org."
+        },
+        {
+          "name": "--async",
+          "description": "Run the command asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the deploy operation you want to cancel."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the most recent deploy operation.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete and display results."
+        }
+      ]
+    },
+    {
+      "name": "project deploy pipeline quick (Beta)",
+      "description": "Quickly deploy a validated deployment to an org.",
+      "requiredFlags": [
+        {
+          "name": "--devops-center-username",
+          "description": "Username or alias of the DevOps Center org."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--async",
+          "description": "Run the command asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--concise",
+          "description": "Show concise output of the command result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--verbose",
+          "description": "Show verbose output of the command result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for command to complete and display results.",
+          "defaultValue": "33"
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the validated deployment to quick deploy."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the most recently validated deployment.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "project deploy pipeline report (Beta)",
+      "description": "Check the status of a pipeline deploy operation.",
+      "requiredFlags": [
+        {
+          "name": "--devops-center-username",
+          "description": "Username or alias of the DevOps Center org."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the pipeline deployment to check the status of."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the most recent deploy operation.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "project deploy pipeline resume (Beta)",
+      "description": "Resume watching a pipeline deploy operation.",
+      "requiredFlags": [
+        {
+          "name": "--devops-center-username",
+          "description": "Username or alias of the DevOps Center org."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the pipeline deploy operation you want to resume."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the most recent deploy operation.",
+          "type": "boolean"
+        },
+        {
+          "name": "--concise",
+          "description": "Show concise output of the command result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--verbose",
+          "description": "Show verbose output of the command result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for command to complete and display results.",
+          "defaultValue": "33"
+        }
+      ]
+    },
+    {
+      "name": "project deploy pipeline start (Beta)",
+      "description": "Deploy changes from a branch to the pipeline stage's org.",
+      "requiredFlags": [
+        {
+          "name": "--branch-name",
+          "description": "Name of the branch in the source control repository that corresponds to the pipeline stage that you want to deploy the changes to."
+        },
+        {
+          "name": "--devops-center-project-name",
+          "description": "Name of the DevOps Center project."
+        },
+        {
+          "name": "--devops-center-username",
+          "description": "Username or alias of the DevOps Center org."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--bundle-version-name",
+          "description": "Version name of the bundle."
+        },
+        {
+          "name": "--deploy-all",
+          "description": "Deploy all metadata in the branch to the stage's org.",
+          "type": "boolean"
+        },
+        {
+          "name": "--tests",
+          "description": "Apex tests to run when --test-level is RunSpecifiedTests."
+        },
+        {
+          "name": "--test-level",
+          "description": "Deployment Apex testing level.",
+          "permissibleValues": ["NoTestRun", "RunSpecifiedTests", "RunLocalTests", "RunAllTestsInOrg"]
+        },
+        {
+          "name": "--async",
+          "description": "Run the command asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for command to complete and display results.",
+          "defaultValue": "33"
+        },
+        {
+          "name": "--verbose",
+          "description": "Show verbose output of the command result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--concise",
+          "description": "Show concise output of the command result.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "project deploy pipeline validate (Beta)",
+      "description": "Perform a validate-only deployment from a branch to the pipeline stage's org.",
+      "requiredFlags": [
+        {
+          "name": "--branch-name",
+          "description": "Name of the branch in the source control repository that corresponds to the pipeline stage that you want to deploy the changes to."
+        },
+        {
+          "name": "--devops-center-project-name",
+          "description": "Name of the DevOps Center project."
+        },
+        {
+          "name": "--devops-center-username",
+          "description": "Username or alias of the DevOps Center org."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--bundle-version-name",
+          "description": "Version name of the bundle."
+        },
+        {
+          "name": "--deploy-all",
+          "description": "Deploy all metadata in the branch to the stage's org.",
+          "type": "boolean"
+        },
+        {
+          "name": "--tests",
+          "description": "Apex tests to run when --test-level is RunSpecifiedTests."
+        },
+        {
+          "name": "--test-level",
+          "description": "Deployment Apex testing level.",
+          "permissibleValues": ["NoTestRun", "RunSpecifiedTests", "RunLocalTests", "RunAllTestsInOrg"]
+        },
+        {
+          "name": "--async",
+          "description": "Run the command asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for command to complete and display results.",
+          "defaultValue": "33"
+        },
+        {
+          "name": "--verbose",
+          "description": "Show verbose output of the command result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--concise",
+          "description": "Show concise output of the command result.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "project deploy preview",
+      "description": "Preview a deployment to see what will deploy to the org, the potential conflicts, and the ignored files.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--ignore-conflicts",
+          "description": "Don't display conflicts in preview of the deployment.",
+          "type": "boolean"
+        },
+        {
+          "name": "--manifest",
+          "description": "Full file path for manifest (package.xml) of components to preview. All child components are included. If you specify this flag, don’t specify --metadata or --source-dir."
+        },
+        {
+          "name": "--metadata",
+          "description": "Metadata component names to preview."
+        },
+        {
+          "name": "--source-dir",
+          "description": "Path to the local source files to preview. The supplied path can be to a single file (in which case the operation is applied to only one file) or to a folder (in which case the operation is applied to all metadata types in the directory and its subdirectories). If you specify this flag, don’t specify --metadata or --manifest."
+        },
+        {
+          "name": "--concise",
+          "description": "Show only the changes that will be deployed; omits files that are forceignored.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "project deploy quick",
+      "description": "Quickly deploy a validated deployment to an org.",
+      "requiredFlags": [],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--async",
+          "description": "Run the command asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--concise",
+          "description": "Show concise output of the deploy result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the deployment you want to quick deploy. The job ID is valid for 10 days from when you started the validation."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the most recently validated deployment.",
+          "type": "boolean"
+        },
+        {
+          "name": "--verbose",
+          "description": "Show verbose output of the deploy result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete and display results.",
+          "defaultValue": "33"
+        },
+        {
+          "name": "--api-version",
+          "description": "Target API version for the deploy."
+        }
+      ]
+    },
+    {
+      "name": "project deploy report",
+      "description": "Check or poll for the status of a deploy operation.",
+      "requiredFlags": [],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org."
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the deploy operation you want to check the status of. These commands return a job ID if they time out or you specified the --async flag: - sf project deploy start - sf project deploy validate - sf project deploy quick - sf project deploy cancel The job ID is valid for 10 days from when you started the deploy operation."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the most recent deploy operation.",
+          "type": "boolean"
+        },
+        {
+          "name": "--coverage-formatters",
+          "description": "Format of the code coverage results.",
+          "permissibleValues": ["clover", "cobertura", "html-spa", "html", "json", "json-summary", "lcovonly", "none", "teamcity", "text", "text-summary"]
+        },
+        {
+          "name": "--junit",
+          "description": "Output JUnit test results.",
+          "type": "boolean"
+        },
+        {
+          "name": "--results-dir",
+          "description": "Output directory for code coverage and JUnit results; defaults to the deploy ID."
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for command to complete and display results."
+        }
+      ]
+    },
+    {
+      "name": "project deploy resume",
+      "description": "Resume watching a deploy operation and update source tracking when the deploy completes.",
+      "requiredFlags": [],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--concise",
+          "description": "Show concise output of the deploy operation result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--job-id",
+          "description": "Job ID of the deploy operation you want to resume. These commands return a job ID if they time out or you specified the --async flag: - sf project deploy start - sf project deploy validate - sf project deploy quick - sf project deploy cancel The job ID is valid for 10 days from when you started the deploy operation."
+        },
+        {
+          "name": "--use-most-recent",
+          "description": "Use the job ID of the most recent deploy operation.",
+          "type": "boolean"
+        },
+        {
+          "name": "--verbose",
+          "description": "Show verbose output of the deploy operation result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete and display results."
+        },
+        {
+          "name": "--coverage-formatters",
+          "description": "Format of the code coverage results.",
+          "permissibleValues": ["clover", "cobertura", "html-spa", "html", "json", "json-summary", "lcovonly", "none", "teamcity", "text", "text-summary"]
+        },
+        {
+          "name": "--junit",
+          "description": "Output JUnit test results.",
+          "type": "boolean"
+        },
+        {
+          "name": "--results-dir",
+          "description": "Output directory for code coverage and JUnit results; defaults to the deploy ID."
+        }
+      ]
+    },
+    {
+      "name": "project deploy start",
+      "description": "Deploy metadata to an org from your local project.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Target API version for the deploy."
+        },
+        {
+          "name": "--async",
+          "description": "Run the command asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--concise",
+          "description": "Show concise output of the deploy result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--dry-run",
+          "description": "Validate deploy and run Apex tests but don’t save to the org.",
+          "type": "boolean"
+        },
+        {
+          "name": "--ignore-conflicts",
+          "description": "Ignore conflicts and deploy local files, even if they overwrite changes in the org.",
+          "type": "boolean"
+        },
+        {
+          "name": "--ignore-errors",
+          "description": "Ignore any errors and don’t roll back deployment.",
+          "type": "boolean"
+        },
+        {
+          "name": "--ignore-warnings",
+          "description": "Ignore warnings and allow a deployment to complete successfully.",
+          "type": "boolean"
+        },
+        {
+          "name": "--manifest",
+          "description": "Full file path for manifest (package.xml) of components to deploy. All child components are included. If you specify this flag, don’t specify --metadata or --source-dir."
+        },
+        {
+          "name": "--metadata",
+          "description": "Metadata component names to deploy. Wildcards (`*` ) supported as long as you use quotes, such as `ApexClass:MyClass*`."
+        },
+        {
+          "name": "--metadata-dir",
+          "description": "Root of directory or zip file of metadata formatted files to deploy."
+        },
+        {
+          "name": "--single-package",
+          "description": "Indicates that the metadata zip file points to a directory structure for a single package.",
+          "type": "boolean"
+        },
+        {
+          "name": "--source-dir",
+          "description": "Path to the local source files to deploy. The supplied path can be to a single file (in which case the operation is applied to only one file) or to a folder (in which case the operation is applied to all metadata types in the directory and its subdirectories). If you specify this flag, don’t specify --metadata or --manifest."
+        },
+        {
+          "name": "--tests",
+          "description": "Apex tests to run when --test-level is RunSpecifiedTests."
+        },
+        {
+          "name": "--test-level",
+          "description": "Deployment Apex testing level.",
+          "permissibleValues": ["NoTestRun", "RunSpecifiedTests", "RunLocalTests", "RunAllTestsInOrg"]
+        },
+        {
+          "name": "--verbose",
+          "description": "Show verbose output of the deploy result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for command to complete and display results.",
+          "defaultValue": "33"
+        },
+        {
+          "name": "--purge-on-delete",
+          "description": "Specify that deleted components in the destructive changes manifest file are immediately eligible for deletion rather than being stored in the Recycle Bin.",
+          "type": "boolean"
+        },
+        {
+          "name": "--pre-destructive-changes",
+          "description": "File path for a manifest (destructiveChangesPre.xml) of components to delete before the deploy."
+        },
+        {
+          "name": "--post-destructive-changes",
+          "description": "File path for a manifest (destructiveChangesPost.xml) of components to delete after the deploy."
+        },
+        {
+          "name": "--coverage-formatters",
+          "description": "Format of the code coverage results.",
+          "permissibleValues": ["clover", "cobertura", "html-spa", "html", "json", "json-summary", "lcovonly", "none", "teamcity", "text", "text-summary"]
+        },
+        {
+          "name": "--junit",
+          "description": "Output JUnit test results.",
+          "type": "boolean"
+        },
+        {
+          "name": "--results-dir",
+          "description": "Output directory for code coverage and JUnit results; defaults to the deploy ID."
+        }
+      ]
+    },
+    {
+      "name": "project deploy validate",
+      "description": "Validate a metadata deployment without actually executing it.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Target API version for the validation."
+        },
+        {
+          "name": "--async",
+          "description": "Run the command asynchronously.",
+          "type": "boolean"
+        },
+        {
+          "name": "--concise",
+          "description": "Show concise output of the validation result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--manifest",
+          "description": "Full file path for manifest (package.xml) of components to validate for deployment. All child components are included. If you specify this flag, don’t specify --metadata or --source-dir."
+        },
+        {
+          "name": "--metadata",
+          "description": "Metadata component names to validate for deployment."
+        },
+        {
+          "name": "--source-dir",
+          "description": "Path to the local source files to validate for deployment. The supplied path can be to a single file (in which case the operation is applied to only one file) or to a folder (in which case the operation is applied to all metadata types in the directory and its subdirectories). If you specify this flag, don’t specify --metadata or --manifest."
+        },
+        {
+          "name": "--metadata-dir",
+          "description": "Root of directory or zip file of metadata formatted files to deploy."
+        },
+        {
+          "name": "--single-package",
+          "description": "Indicates that the metadata zip file points to a directory structure for a single package.",
+          "type": "boolean"
+        },
+        {
+          "name": "--tests",
+          "description": "Apex tests to run when --test-level is RunSpecifiedTests."
+        },
+        {
+          "name": "--test-level",
+          "description": "Deployment Apex testing level.",
+          "permissibleValues": ["RunAllTestsInOrg", "RunLocalTests", "RunSpecifiedTests"],
+          "defaultValue": "RunLocalTests"
+        },
+        {
+          "name": "--verbose",
+          "description": "Show verbose output of the validation result.",
+          "type": "boolean"
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete and display results.",
+          "defaultValue": "33"
+        },
+        {
+          "name": "--ignore-warnings",
+          "description": "Ignore warnings and allow a deployment to complete successfully.",
+          "type": "boolean"
+        },
+        {
+          "name": "--coverage-formatters",
+          "description": "Format of the code coverage results.",
+          "permissibleValues": ["clover", "cobertura", "html-spa", "html", "json", "json-summary", "lcovonly", "none", "teamcity", "text", "text-summary"]
+        },
+        {
+          "name": "--junit",
+          "description": "Output JUnit test results.",
+          "type": "boolean"
+        },
+        {
+          "name": "--results-dir",
+          "description": "Output directory for code coverage and JUnit results; defaults to the deploy ID."
+        },
+        {
+          "name": "--purge-on-delete",
+          "description": "Specify that deleted components in the destructive changes manifest file are immediately eligible for deletion rather than being stored in the Recycle Bin.",
+          "type": "boolean"
+        },
+        {
+          "name": "--pre-destructive-changes",
+          "description": "File path for a manifest (destructiveChangesPre.xml) of components to delete before the deploy"
+        },
+        {
+          "name": "--post-destructive-changes",
+          "description": "File path for a manifest (destructiveChangesPost.xml) of components to delete after the deploy."
+        }
+      ]
+    },
+    {
+      "name": "project generate",
+      "description": "Generate a Salesforce DX project.",
+      "requiredFlags": [
+        {
+          "name": "--name",
+          "description": "Name of the generated project. Generates a project directory with this name; any valid directory name is accepted. Also sets the \"name\" property in the sfdx-project.json file to this name."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--template",
+          "description": "Template to use for project creation. The template determines the sample configuration files and directories that this command generates. For example, the empty template provides these files and directory to get you started. - .forceignore - config/project-scratch-def.json - sfdx-project.json - package.json - force-app (basic source directory structure) The standard template provides a complete force-app directory structure so you know where to put your source. It also provides additional files and scripts, especially useful when using Salesforce Extensions for VS Code. For example: - .gitignore: Use Git for version control. - .prettierrc and .prettierignore: Use Prettier to format your Aura components. - .vscode/extensions.json: When launched, Visual Studio Code, prompts you to install the recommended extensions for your project. - .vscode/launch.json: Configures Replay Debugger. - .vscode/settings.json: Additional configuration settings. The analytics template provides similar files and the force-app/main/default/waveTemplates directory.",
+          "permissibleValues": ["standard", "empty", "analytics"],
+          "defaultValue": "standard"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory for saving the created files. The location can be an absolute path or relative to the current working directory. The default is the current directory.",
+          "defaultValue": "."
+        },
+        {
+          "name": "--namespace",
+          "description": "Namespace associated with this project and any connected scratch orgs."
+        },
+        {
+          "name": "--default-package-dir",
+          "description": "Default package directory name. Metadata items such as classes and Lightning bundles are placed inside this folder.",
+          "defaultValue": "force-app"
+        },
+        {
+          "name": "--manifest",
+          "description": "Generate a manifest (package.xml) for change-set based development. Generates a default manifest (package.xml) for fetching Apex, Visualforce, Lightning components, and static resources.",
+          "type": "boolean"
+        },
+        {
+          "name": "--api-version",
+          "description": "Will set this version as sourceApiVersion in the sfdx-project.json file Override the api version used for api requests made by this command"
+        }
+      ]
+    },
+    {
+      "name": "project generate manifest",
+      "description": "Create a project manifest that lists the metadata components you want to deploy or retrieve.",
+      "requiredFlags": [],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--metadata",
+          "description": "Names of metadata components to include in the manifest."
+        },
+        {
+          "name": "--source-dir",
+          "description": "Paths to the local source files to include in the manifest."
+        },
+        {
+          "name": "--name",
+          "description": "Name of a custom manifest file to create."
+        },
+        {
+          "name": "--type",
+          "description": "Type of manifest to create; the type determines the name of the created file.",
+          "permissibleValues": ["pre", "post", "destroy", "package"]
+        },
+        {
+          "name": "--include-packages",
+          "description": "Package types (managed, unlocked) whose metadata is included in the manifest; by default, metadata in managed and unlocked packages is excluded. Metadata in unmanaged packages is always included.",
+          "permissibleValues": ["managed", "unlocked"]
+        },
+        {
+          "name": "--excluded-metadata",
+          "description": "Metadata types to exclude when building a manifest from an org. Specify the name of the type, not the name of a specific component."
+        },
+        {
+          "name": "--from-org",
+          "description": "Username or alias of the org that contains the metadata components from which to build a manifest."
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory to save the created manifest."
+        }
+      ]
+    },
+    {
+      "name": "project list ignored",
+      "description": "Check your local project package directories for forceignored files.",
+      "requiredFlags": [],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--source-dir",
+          "description": "File or directory of files that the command checks for foreceignored files."
+        }
+      ]
+    },
+    {
+      "name": "project reset tracking",
+      "description": "Reset local and remote source tracking.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--revision",
+          "description": "SourceMember revision counter number to reset to."
+        },
+        {
+          "name": "--no-prompt",
+          "description": "Don't prompt for source tracking override confirmation.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "project retrieve preview",
+      "description": "Preview a retrieval to see what will be retrieved from the org, the potential conflicts, and the ignored files.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--ignore-conflicts",
+          "description": "Don't display conflicts in the preview of the retrieval. This flag applies only to orgs that allow source tracking. It has no effect on orgs that don't allow it, such as production orgs.",
+          "type": "boolean"
+        },
+        {
+          "name": "--concise",
+          "description": "Show only the changes that will be retrieved; omits files that are forceignored.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "project retrieve start",
+      "description": "Retrieve metadata from an org to your local project.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Target API version for the retrieve. Use this flag to override the default API version, which is the latest version supported the CLI, with the API version in your package.xml file."
+        },
+        {
+          "name": "--ignore-conflicts",
+          "description": "Ignore conflicts and retrieve and save files to your local filesystem, even if they overwrite your local changes. This flag applies only to orgs that allow source tracking. It has no effect on orgs that don't allow it, such as production orgs.",
+          "type": "boolean"
+        },
+        {
+          "name": "--manifest",
+          "description": "File path for the manifest (package.xml) that specifies the components to retrieve. If you specify this flag, don’t specify --metadata or --source-dir."
+        },
+        {
+          "name": "--metadata",
+          "description": "Metadata component names to retrieve. Wildcards (`*`) supported as long as you use quotes, such as `ApexClass:MyClass*`."
+        },
+        {
+          "name": "--package-name",
+          "description": "Package names to retrieve. Use of this flag is for reference only; don't use it to retrieve packaged metadata for development. The metadata of the supplied package name(s) will be retrieved into a child directory of the project. The name of that child directory matches the name of the package. The retrieved metadata is meant for your reference only, don't add it to a source control system for development and deployment. For package development, retrieve the metadata using a manifest (`--manifest` flag) or by targeting a source controlled package directory within your project (`--source-dir` flag)."
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory root for the retrieved source files. The root of the directory structure into which the source files are retrieved. If the target directory matches one of the package directories in your sfdx-project.json file, the command fails. Running the command multiple times with the same target adds new files and overwrites existing files."
+        },
+        {
+          "name": "--single-package",
+          "description": "Indicates that the zip file points to a directory structure for a single package.",
+          "type": "boolean"
+        },
+        {
+          "name": "--source-dir",
+          "description": "File paths for source to retrieve from the org. The supplied paths can be to a single file (in which case the operation is applied to only one file) or to a folder (in which case the operation is applied to all source files in the directory and its subdirectories)."
+        },
+        {
+          "name": "--target-metadata-dir",
+          "description": "Directory that will contain the retrieved metadata format files or ZIP."
+        },
+        {
+          "name": "--wait",
+          "description": "Number of minutes to wait for the command to complete and display results to the terminal window. If the command continues to run after the wait period, the CLI returns control of the terminal window to you.",
+          "defaultValue": "33"
+        },
+        {
+          "name": "--unzip",
+          "description": "Extract all files from the retrieved zip file.",
+          "type": "boolean"
+        },
+        {
+          "name": "--zip-file-name",
+          "description": "File name to use for the retrieved zip file."
+        }
+      ]
+    }
+  ]
+}

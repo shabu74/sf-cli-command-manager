@@ -1,0 +1,91 @@
+{
+  "commands": [
+    {
+      "name": "schema generate field",
+      "description": "Generate metadata source files for a new custom field on a specified object.",
+      "requiredFlags": [
+        {
+          "name": "--label",
+          "description": "The field's label."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--object",
+          "description": "The directory that contains the object's source files."
+        }
+      ]
+    },
+    {
+      "name": "schema generate platformevent",
+      "description": "Generate metadata source files for a new platform event.",
+      "requiredFlags": [
+        {
+          "name": "--label",
+          "description": "The platform event's label."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        }
+      ]
+    },
+    {
+      "name": "schema generate sobject",
+      "description": "Generate metadata source files for a new custom object.",
+      "requiredFlags": [
+        {
+          "name": "--label",
+          "description": "The custom object's label."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--use-default-features",
+          "description": "Enable all optional features without prompting.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "schema generate tab",
+      "description": "Generate the metadata source files for a new custom tab on a custom object.",
+      "requiredFlags": [
+        {
+          "name": "--object",
+          "description": "The directory that contains the custom object's source files."
+        },
+        {
+          "name": "--directory",
+          "description": "Path to the directory that contains the icon file."
+        },
+        {
+          "name": "--icon",
+          "description": "The icon's index in the icon file.",
+          "defaultValue": "1"
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        }
+      ]
+    }
+  ]
+}

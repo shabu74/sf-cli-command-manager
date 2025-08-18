@@ -1,0 +1,58 @@
+{
+  "commands": [
+    {
+      "name": "alias list",
+      "description": "List all aliases currently set on your local computer.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        }
+      ]
+    },
+    {
+      "name": "alias set",
+      "description": "Set one or more aliases on your local computer.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        }
+      ]
+    },
+    {
+      "name": "alias unset",
+      "description": "Unset one or more aliases that are currently set on your local computer.",
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--all",
+          "description": "Unset all currently set aliases."
+        },
+        {
+          "name": "--no-prompt",
+          "description": "Don't prompt the user for confirmation when unsetting all aliases.",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

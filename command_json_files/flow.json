@@ -1,0 +1,139 @@
+{
+  "commands": [
+    {
+      "name": "flow get test",
+      "description": "Display test results for a specific asynchronous test run.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        },
+        {
+          "name": "--test-run-id",
+          "description": "ID of the test run. Provide a flow test run ID to display test results for an enqueued or completed asynchronous test run. The test run ID is displayed after running the \"sf flow run test\" command."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--code-coverage",
+          "description": "Retrieve code coverage results. To see code coverage results, use the --code-coverage flag with --result-format. The output displays a high-level summary of the test run and the code coverage values for flow tests in your org. If you specify human-readable result format, use the --detailed-coverage flag to see detailed coverage results for each test method run.",
+          "type": "boolean"
+        },
+        {
+          "name": "--detailed-coverage",
+          "description": "Not available for flow tests.",
+          "type": "boolean"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory in which to store test result files."
+        },
+        {
+          "name": "--result-format",
+          "description": "Format of the test results.",
+          "permissibleValues": [
+            "human",
+            "tap",
+            "junit",
+            "json"
+          ],
+          "defaultValue": "human"
+        },
+        {
+          "name": "--concise",
+          "description": "Display only failed test results; works with human-readable output only.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "flow run test",
+      "description": "Invoke flow tests in an org.",
+      "requiredFlags": [
+        {
+          "name": "--target-org",
+          "description": "Username or alias of the target org. Not required if the `target-org` configuration variable is already set."
+        }
+      ],
+      "optionalFlags": [
+        {
+          "name": "--json",
+          "description": "Format output as json.",
+          "type": "boolean"
+        },
+        {
+          "name": "--flags-dir",
+          "description": "Import flag values from a directory."
+        },
+        {
+          "name": "--api-version",
+          "description": "Override the api version used for api requests made by this command"
+        },
+        {
+          "name": "--result-format",
+          "description": "Format of the test results.",
+          "permissibleValues": [
+            "human",
+            "tap",
+            "junit",
+            "json"
+          ],
+          "defaultValue": "human"
+        },
+        {
+          "name": "--concise",
+          "description": "Display only failed test results; works with human-readable output only.",
+          "type": "boolean"
+        },
+        {
+          "name": "--output-dir",
+          "description": "Directory in which to store test result files."
+        },
+        {
+          "name": "--code-coverage",
+          "description": "Retrieve code coverage results. To see code coverage results, use the --code-coverage flag with --result-format. The output displays a high-level summary of the test run and the code coverage values for classes in your org. If you specify human-readable result format, use the --detailed-coverage flag to see detailed coverage results for each test method run.",
+          "type": "boolean"
+        },
+        {
+          "name": "--synchronous",
+          "description": "Run flow tests for one flow synchronously; if not specified, tests are run asynchronously. By default, \"flow run test\" runs asynchronously and immediately returns a test run ID. If you use the -–synchronous flag, you can use the --wait flag to specify the number of minutes to wait; if the tests finish in that timeframe, the command displays the results. If the tests haven't finished by the end of the wait time, the command displays a test run ID. Use the \"flow get test --test-run-id\" command to get the results.",
+          "type": "boolean"
+        },
+        {
+          "name": "--test-level",
+          "description": "Level of tests to run; default is RunLocalTests. Here's what the levels mean: RunLocalTests — All tests in your org are run, except the ones that originate from installed managed and unlocked packages. RunAllTestsInOrg — All tests are run. The tests include all tests in your org, including tests of managed packages. RunSpecifiedTests - Only the tests that you specify with the --tests flag are run.",
+          "permissibleValues": [
+            "RunLocalTests",
+            "RunAllTestsInOrg",
+            "RunSpecifiedTests"
+          ]
+        },
+        {
+          "name": "--class-names",
+          "description": "Flow names that contain flow tests to run. Default is all flow tests. If you select --class-names, you can't specify --tests. Specify which tests to run by using the --class-names flag followed by the names of the flows you want to test. For example, if you save a flow with the name Flow1, then use: --class-names Flow1."
+        },
+        {
+          "name": "--suite-names",
+          "description": "Not available for flow tests."
+        },
+        {
+          "name": "--tests",
+          "description": "Flow test names to run. Default is all flow tests. If you specify --tests, you can't specify --class-names."
+        }
+      ]
+    }
+  ]
+}
